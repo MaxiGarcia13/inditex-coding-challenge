@@ -1,0 +1,18 @@
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-sm);
+
+  background-color: transparent;
+  color: var(--text-color);
+
+  border: none;
+  cursor: pointer;
+}
+
+.counter {
+  font-size: var(--text-size-md);
+  line-height: var(--text-size-md);
+  text-transform: uppercase;
+}
