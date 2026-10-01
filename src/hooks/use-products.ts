@@ -1,8 +1,13 @@
 import type { ProductsResponse } from '@/domain/products';
 import { useQuery } from '@tanstack/react-query';
 import { getProducts } from '@/services/products';
+import { useNavigation } from './use-navigation';
 
-export function useProducts(search: string) {
+export function useProducts() {
+  const { getSearchParam } = useNavigation();
+
+  const search = getSearchParam('q') ?? '';
+
   const { data: { data, total }, isLoading, error } = useQuery<ProductsResponse>({
     queryKey: ['products', search],
     queryFn: () => getProducts({
