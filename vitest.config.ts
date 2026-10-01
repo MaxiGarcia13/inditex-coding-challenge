@@ -11,8 +11,12 @@ export default defineConfig({
       '@package-json': path.join(root, 'package.json'),
     },
   },
+
   test: {
-    include: ['src/**/*.test.ts'],
+    globals: true,
+    environment: 'jsdom',
+    include: ['src/**/*.test.ts', 'src/**/*.test.tsx'],
+    setupFiles: [path.join(root, 'setup-tests.ts')],
     passWithNoTests: true,
   },
 });
