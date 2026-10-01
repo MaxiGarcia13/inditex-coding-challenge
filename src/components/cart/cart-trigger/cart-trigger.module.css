@@ -13,6 +13,6 @@
 
 .counter {
   font-size: var(--text-size-md);
-  line-height: var(--text-size-md);
   text-transform: uppercase;
+  font-weight: var(--font-weight-light);
 }
