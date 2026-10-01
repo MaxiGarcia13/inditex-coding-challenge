@@ -5,7 +5,9 @@ import styles from './app-header.module.css';
 export function AppHeader() {
   return (
     <header className={styles.header}>
-      <LogoIcon />
+      <a href="/">
+        <LogoIcon />
+      </a>
       <CartTrigger />
     </header>
   );
