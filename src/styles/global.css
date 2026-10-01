@@ -1,4 +1,11 @@
-root {
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-family);
+  margin: 0;
+}
+
+:root {
   --bg-color: #ffffff;
   --text-color: #000000;
   --text-light-color: #79736d;
@@ -9,4 +16,14 @@ root {
   --space-xs: 4px;
   --space-sm: 6px;
   --space-md: 12px;
+
+  --page-padding: 40px 24px;
+
+  --font-family: Helvetica, Arial, sans-serif;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --page-padding: 24px 16px;
+  }
 }
