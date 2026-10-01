@@ -1,7 +1,7 @@
 'use client';
 
 import type { Product } from '@/domain/products';
-import { SearchResultListItem } from '../search-result-list-item';
+import { ProductCard } from '../product-card';
 import styles from './search-result-list.module.css';
 
 const FAKE_SEARCH_RESULTS: Product[] = [
@@ -46,7 +46,7 @@ export function SearchResultList() {
   return (
     <ul className={styles.list}>
       {FAKE_SEARCH_RESULTS.map((product) => (
-        <SearchResultListItem key={product.id} product={product} />
+        <ProductCard key={product.id} product={product} />
       ))}
     </ul>
   );

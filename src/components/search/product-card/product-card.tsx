@@ -1,11 +1,11 @@
 import type { Product } from '@/domain/products';
-import styles from './search-result-list-item.module.css';
+import styles from './product-card.module.css';
 
-interface SearchResultListItemProps extends React.HTMLAttributes<HTMLLIElement> {
+interface ProductCardProps extends React.HTMLAttributes<HTMLLIElement> {
   product: Product;
 }
 
-export function SearchResultListItem({ product, ...props }: SearchResultListItemProps) {
+export function ProductCard({ product, ...props }: ProductCardProps) {
   return (
     <li className={styles.item} {...props}>
       <img
