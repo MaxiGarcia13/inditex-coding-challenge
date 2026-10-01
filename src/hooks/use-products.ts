@@ -8,7 +8,11 @@ export function useProducts() {
 
   const search = getSearchParam('q') ?? '';
 
-  const { data: { data, total }, isLoading, error } = useQuery<ProductsResponse>({
+  const {
+    data: { data, total } = { data: [], total: 0 },
+    isLoading,
+    error,
+  } = useQuery<ProductsResponse>({
     queryKey: ['products', search],
     queryFn: () => getProducts({
       limit: 20,

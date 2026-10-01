@@ -1,4 +1,4 @@
-.item {
+.card {
   list-style: none;
   border: 0.5px solid var(--border-color);
   height: 444px;
@@ -12,43 +12,43 @@
   margin-bottom: -1px;
 }
 
-.item__image_container {
+.card__image_container {
   flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.item__image {
+.card__image {
   flex: 1;
   object-fit: contain;
   width: 312px;
   max-height: 257px;
 }
 
-.item__info {
+.card__info {
   display: flex;
   flex-direction: column;
   gap: var(--space-sm);
   width: 100%;
 }
 
-.item__info__brand {
+.card__info__brand {
   font-size: var(--text-size-sm);
   color: var(--text-light-color);
 }
 
-.item__info__details {
+.card__info__details {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }
 
-.item__info__details__name {
+.card__info__details__name {
   font-size: var(--text-size-md);
 }
 
-.item__info__details__price {
+.card__info__details__price {
   font-size: var(--text-size-md);
 }

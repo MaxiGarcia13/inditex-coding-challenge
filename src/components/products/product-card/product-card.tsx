@@ -7,10 +7,10 @@ interface ProductCardProps extends React.HTMLAttributes<HTMLLIElement> {
 
 export function ProductCard({ product, ...props }: ProductCardProps) {
   return (
-    <li className={styles.item} {...props}>
-      <div className={styles.item__image_container}>
+    <li className={styles.card} {...props}>
+      <div className={styles.card__image_container}>
         <img
-          className={styles.item__image}
+          className={styles.card__image}
           src={product.imageUrl}
           alt={product.name}
           width={312}
@@ -18,12 +18,12 @@ export function ProductCard({ product, ...props }: ProductCardProps) {
         />
       </div>
 
-      <footer className={styles.item__info}>
-        <span className={styles.item__info__brand}>{product.brand}</span>
+      <footer className={styles.card__info}>
+        <span className={styles.card__info__brand}>{product.brand}</span>
 
-        <div className={styles.item__info__details}>
-          <span className={styles.item__info__details__name}>{product.name}</span>
-          <span className={styles.item__info__details__price}>{product.basePrice}</span>
+        <div className={styles.card__info__details}>
+          <span className={styles.card__info__details__name}>{product.name}</span>
+          <span className={styles.card__info__details__price}>{product.basePrice}</span>
         </div>
       </footer>
     </li>
