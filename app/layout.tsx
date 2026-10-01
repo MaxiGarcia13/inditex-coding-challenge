@@ -20,7 +20,9 @@ export default function RootLayout({
       <body>
         <AppHeader />
 
-        {children}
+        <main>
+          {children}
+        </main>
       </body>
     </html>
   );
