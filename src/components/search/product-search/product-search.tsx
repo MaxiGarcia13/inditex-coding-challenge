@@ -1,6 +1,6 @@
 'use client';
 
-import { SearchInput } from '../search-input';
+import { SearchInput } from '@/components/search-input';
 import styles from './product-search.module.css';
 
 export function ProductSearch() {
