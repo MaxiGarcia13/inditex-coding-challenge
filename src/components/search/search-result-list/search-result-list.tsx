@@ -1,6 +1,6 @@
 'use client';
 
-import type { SearchResult } from '@/modules/search';
+import type { SearchResult } from '@/domain/search';
 import { SearchResultListItem } from '../search-result-list-item';
 import styles from './search-result-list.module.css';
 

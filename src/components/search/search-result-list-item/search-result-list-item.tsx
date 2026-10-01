@@ -1,4 +1,4 @@
-import type { SearchResult } from '@/modules';
+import type { SearchResult } from '@/domain/search';
 import styles from './search-result-list-item.module.css';
 
 interface SearchResultListItemProps extends React.HTMLAttributes<HTMLLIElement> {
