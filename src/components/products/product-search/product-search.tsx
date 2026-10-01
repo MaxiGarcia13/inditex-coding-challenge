@@ -2,12 +2,12 @@
 
 import { SearchInput } from '@/components/search-input';
 import { useNavigation } from '@/hooks/use-navigation';
+import { useProducts } from '@/hooks/use-products';
 import styles from './product-search.module.css';
 
 export function ProductSearch() {
-  const totalResults = 100;
-
   const { setSearchParam, deleteSearchParam, getSearchParam } = useNavigation();
+  const { total } = useProducts(getSearchParam('q') ?? '');
 
   const handleSearch = (search: string) => {
     const value = search.trim();
@@ -27,8 +27,8 @@ export function ProductSearch() {
         onSearch={handleSearch}
         initialValue={getSearchParam('q')}
       />
-      <span className={styles.results} aria-label={`${totalResults} results`}>
-        {totalResults}
+      <span className={styles.results} aria-label={`${total} results`}>
+        {total}
         {' '}
         results
       </span>
