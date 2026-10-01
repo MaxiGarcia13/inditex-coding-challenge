@@ -5,13 +5,21 @@ import styles from './search-input.module.css';
 
 interface SearchInputProps extends InputHTMLAttributes<HTMLInputElement> {
   onSearch: (search: string) => void;
+  debounceTime?: number;
+  initialValue?: string;
 }
 
-const DEBOUNCE_TIME = 800;
+const DEBOUNCE_TIME = 500;
 
-export function SearchInput({ className, onSearch, ...props }: SearchInputProps) {
-  const debouncedSearchRef = useRef(debounce(onSearch, DEBOUNCE_TIME));
-  const [search, setSearch] = useState('');
+export function SearchInput({
+  className,
+  debounceTime = DEBOUNCE_TIME,
+  onSearch,
+  initialValue,
+  ...props
+}: SearchInputProps) {
+  const debouncedSearchRef = useRef(debounce(onSearch, debounceTime));
+  const [search, setSearch] = useState(initialValue);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value);
