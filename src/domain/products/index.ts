@@ -8,7 +8,7 @@ export interface Product {
   imageUrl: string;
 }
 
-export type ProductsResponse = HttpResponse<Array<Product>>;
+export type ProductsResponse = HttpResponse<Array<Product>> & { total: number };
 
 export interface ProductsRequest {
   search?: string;
