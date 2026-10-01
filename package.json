@@ -1,0 +1,20 @@
+{
+  "name": "inditex-coding-challenge",
+  "version": "0.0.0",
+  "description": "Inditex coding challenge solution 🚀",
+  "homepage": "https://github.com/MaxiGarcia13/inditex-coding-challenge#readme",
+  "bugs": {
+    "url": "https://github.com/MaxiGarcia13/inditex-coding-challenge/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MaxiGarcia13/inditex-coding-challenge.git"
+  },
+  "license": "ISC",
+  "author": "Maximiliano Garcia Mortigliengo",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
