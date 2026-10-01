@@ -1,6 +1,6 @@
 'use client';
 
-import { useDeferredValue, ViewTransition } from 'react';
+import { ViewTransition } from 'react';
 import { useProducts } from '@/hooks/use-products';
 import { ProductCard } from '../product-card';
 import styles from './product-list.module.css';
