@@ -20,6 +20,7 @@ export function SearchInput({ className, onSearch, ...props }: SearchInputProps)
 
   return (
     <input
+      role="search"
       className={cn(styles.input, className)}
       value={search}
       onChange={handleChange}
