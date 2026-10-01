@@ -4,7 +4,7 @@ import { getProducts } from '@/services/products';
 
 export function useProducts(search: string) {
   const { data: { data, total }, isLoading, error } = useQuery<ProductsResponse>({
-    queryKey: ['products'],
+    queryKey: ['products', search],
     queryFn: () => getProducts({
       limit: 20,
       offset: 0,
