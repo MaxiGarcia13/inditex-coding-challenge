@@ -1,9 +1,9 @@
 'use client';
 
 import { SearchInput } from '../search-input';
-import styles from './search-box.module.css';
+import styles from './product-search.module.css';
 
-export function SearchBox() {
+export function ProductSearch() {
   const totalResults = 100;
 
   const handleSearch = (search: string) => {

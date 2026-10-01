@@ -1,10 +1,10 @@
-import { SearchBox, SearchResultList } from '@/components/search';
+import { ProductList, ProductSearch } from '@/components/search';
 
 export default function Page() {
   return (
     <>
-      <SearchBox />
-      <SearchResultList />
+      <ProductSearch />
+      <ProductList />
     </>
   );
 }

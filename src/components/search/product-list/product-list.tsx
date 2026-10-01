@@ -2,9 +2,9 @@
 
 import type { Product } from '@/domain/products';
 import { ProductCard } from '../product-card';
-import styles from './search-result-list.module.css';
+import styles from './product-list.module.css';
 
-const FAKE_SEARCH_RESULTS: Product[] = [
+const FAKE_PRODUCTS: Product[] = [
   {
     id: '1',
     brand: 'Apple',
@@ -42,10 +42,10 @@ const FAKE_SEARCH_RESULTS: Product[] = [
   },
 ];
 
-export function SearchResultList() {
+export function ProductList() {
   return (
     <ul className={styles.list}>
-      {FAKE_SEARCH_RESULTS.map((product) => (
+      {FAKE_PRODUCTS.map((product) => (
         <ProductCard key={product.id} product={product} />
       ))}
     </ul>
