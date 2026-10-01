@@ -17,7 +17,7 @@
   --page-padding-x: 40px;
   --page-padding: 24px var(--page-padding-x);
 
-  --font-family: Helvetica, Arial, sans-serif;
+  --font-family: Helvetica Neue, Arial, sans-serif;
   --font-weight-light: 300;
 }
 
@@ -25,12 +25,12 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: var(--font-family);
 }
 
 body {
   background-color: var(--bg-color);
   color: var(--text-color);
-  font-family: var(--font-family);
   font-size: var(--text-size-md);
   font-weight: var(--font-weight-light);
   margin: 0;
