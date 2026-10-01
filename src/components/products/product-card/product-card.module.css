@@ -12,11 +12,18 @@
   margin-bottom: -1px;
 }
 
+.item__image_container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .item__image {
   flex: 1;
   object-fit: contain;
   width: 312px;
-  height: 257px;
+  max-height: 257px;
 }
 
 .item__info {
