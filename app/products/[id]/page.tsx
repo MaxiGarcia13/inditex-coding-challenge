@@ -1,7 +1,9 @@
+import { BackButton } from '@/components/back-button';
+
 export default function Page() {
   return (
-    <div>
-      <h1>Product Detail</h1>
-    </div>
+    <>
+      <BackButton />
+    </>
   );
 }
