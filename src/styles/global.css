@@ -1,0 +1,12 @@
+root {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --text-light-color: #79736d;
+  --text-muted-color: #666666;
+
+  --border-color: #000000;
+
+  --space-xs: 4px;
+  --space-sm: 6px;
+  --space-md: 12px;
+}
