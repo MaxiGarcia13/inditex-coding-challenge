@@ -1,4 +1,4 @@
-import { ProductList, ProductSearch } from '@/components/search';
+import { ProductList, ProductSearch } from '@/components/products';
 
 export default function Page() {
   return (
