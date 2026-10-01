@@ -1,0 +1,8 @@
+.container {
+  width: 100%;
+  padding: var(--space-md) var(--page-padding-x);
+}
+
+.button {
+  text-transform: uppercase;
+}
