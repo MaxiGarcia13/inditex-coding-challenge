@@ -1,10 +1,10 @@
 'use client';
 
-import type { SearchResult } from '@/domain/search';
+import type { Product } from '@/domain/products';
 import { SearchResultListItem } from '../search-result-list-item';
 import styles from './search-result-list.module.css';
 
-const FAKE_SEARCH_RESULTS: SearchResult[] = [
+const FAKE_SEARCH_RESULTS: Product[] = [
   {
     id: '1',
     brand: 'Apple',
@@ -45,8 +45,8 @@ const FAKE_SEARCH_RESULTS: SearchResult[] = [
 export function SearchResultList() {
   return (
     <ul className={styles.list}>
-      {FAKE_SEARCH_RESULTS.map((result) => (
-        <SearchResultListItem key={result.id} result={result} />
+      {FAKE_SEARCH_RESULTS.map((product) => (
+        <SearchResultListItem key={product.id} product={product} />
       ))}
     </ul>
   );

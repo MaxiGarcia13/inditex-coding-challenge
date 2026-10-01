@@ -1,6 +1,6 @@
 import type { HttpResponse } from '../http';
 
-export interface SearchResult {
+export interface Product {
   id: string;
   brand: string;
   name: string;
@@ -8,9 +8,9 @@ export interface SearchResult {
   imageUrl: string;
 }
 
-export type SearchResponse = HttpResponse<Array<SearchResult>>;
+export type ProductsResponse = HttpResponse<Array<Product>>;
 
-export interface SearchRequest {
+export interface ProductsRequest {
   search?: string;
   limit?: number;
   offset?: number;

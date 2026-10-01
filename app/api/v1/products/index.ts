@@ -1,11 +1,11 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import type { SearchRequest, SearchResponse } from '@/domain/search';
+import type { ProductsRequest, ProductsResponse } from '@/domain/products';
 import process from 'node:process';
 import { buildUrl } from '@/utils/url';
 
 export default async function handler(
-  req: NextApiRequest & { query: SearchRequest },
-  res: NextApiResponse<SearchResponse>,
+  req: NextApiRequest & { query: ProductsRequest },
+  res: NextApiResponse<ProductsResponse>,
 ) {
   const { search, limit, offset } = req.query;
 
