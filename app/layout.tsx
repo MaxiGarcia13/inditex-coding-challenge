@@ -1,5 +1,6 @@
 import { author } from '@package-json';
 import { AppHeader } from '@/components/app-header';
+import { QueryClientProvider } from '@/components/query-client-provider';
 import '@/styles/global.css';
 
 export default function RootLayout({
@@ -21,7 +22,9 @@ export default function RootLayout({
         <AppHeader />
 
         <main>
-          {children}
+          <QueryClientProvider>
+            {children}
+          </QueryClientProvider>
         </main>
       </body>
     </html>
