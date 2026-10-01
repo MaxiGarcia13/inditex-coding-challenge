@@ -1,6 +1,7 @@
 'use client';
 
 import type { SearchResult } from '@/modules/search';
+import { SearchResultListItem } from '../search-result-list-item';
 import styles from './search-result-list.module.css';
 
 const FAKE_SEARCH_RESULTS: SearchResult[] = [
@@ -45,24 +46,7 @@ export function SearchResultList() {
   return (
     <ul className={styles.list}>
       {FAKE_SEARCH_RESULTS.map((result) => (
-        <li key={result.id} className={styles.item}>
-          <img
-            src={result.imageUrl}
-            alt={result.name}
-            width={312}
-            height={257}
-            className={styles.item__image}
-          />
-
-          <footer className={styles.item__info}>
-            <span className={styles.item__info__brand}>{result.brand}</span>
-
-            <div className={styles.item__info__details}>
-              <span className={styles.item__info__details__name}>{result.name}</span>
-              <span className={styles.item__info__details__price}>{result.basePrice}</span>
-            </div>
-          </footer>
-        </li>
+        <SearchResultListItem key={result.id} result={result} />
       ))}
     </ul>
   );

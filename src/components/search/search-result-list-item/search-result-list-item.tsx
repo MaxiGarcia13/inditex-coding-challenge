@@ -1,0 +1,29 @@
+import type { SearchResult } from '@/modules';
+import styles from './search-result-list-item.module.css';
+
+interface SearchResultListItemProps extends React.HTMLAttributes<HTMLLIElement> {
+  result: SearchResult;
+}
+
+export function SearchResultListItem({ result, ...props }: SearchResultListItemProps) {
+  return (
+    <li className={styles.item} {...props}>
+      <img
+        src={result.imageUrl}
+        alt={result.name}
+        width={312}
+        height={257}
+        className={styles.item__image}
+      />
+
+      <footer className={styles.item__info}>
+        <span className={styles.item__info__brand}>{result.brand}</span>
+
+        <div className={styles.item__info__details}>
+          <span className={styles.item__info__details__name}>{result.name}</span>
+          <span className={styles.item__info__details__price}>{result.basePrice}</span>
+        </div>
+      </footer>
+    </li>
+  );
+}
