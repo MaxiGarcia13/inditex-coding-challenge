@@ -15,7 +15,8 @@
   --space-md: 12px;
 
   --page-padding-x: 40px;
-  --page-padding: 24px var(--page-padding-x);
+  --page-padding-y: 24px;
+  --page-padding: var(--page-padding-y) var(--page-padding-x);
 
   --font-family: Helvetica Neue, Arial, sans-serif;
   --font-weight-light: 300;
@@ -47,13 +48,14 @@ main {
   overflow-x: hidden;
   overflow-y: auto;
   height: 100%;
+  padding-bottom: var(--page-padding-y);
+  padding-top: 48px;
 }
 
 body,
 main {
   display: flex;
   flex-direction: column;
-  gap: 48px;
 }
 
 input {
