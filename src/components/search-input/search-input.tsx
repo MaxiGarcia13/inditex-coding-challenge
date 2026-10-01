@@ -23,6 +23,7 @@ export function SearchInput({
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value);
+
     debouncedSearchRef.current(e.target.value);
   };
 
