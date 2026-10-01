@@ -27,7 +27,7 @@ export function useNavigation() {
     keepSearchParams?: boolean;
   }
 
-  const navigateTo = (path: string, { keepSearchParams = true }: NavigateToOptions = {}) => {
+  const navigateTo = (path: string, { keepSearchParams = false }: NavigateToOptions = {}) => {
     let destination = path;
 
     if (keepSearchParams) {
