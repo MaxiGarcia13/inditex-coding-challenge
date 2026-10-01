@@ -1,0 +1,26 @@
+'use client';
+
+import { SearchInput } from '../search-input';
+import styles from './search-box.module.css';
+
+export function SearchBox() {
+  const totalResults = 100;
+
+  const handleSearch = (search: string) => {
+    console.warn(search);
+  };
+
+  return (
+    <div className={styles.container}>
+      <SearchInput
+        placeholder="Search for a smartphone..."
+        onSearch={handleSearch}
+      />
+      <span className={styles.results}>
+        {totalResults}
+        {' '}
+        results
+      </span>
+    </div>
+  );
+}

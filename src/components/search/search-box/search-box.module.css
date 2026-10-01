@@ -1,0 +1,13 @@
+.container {
+  gap: var(--space-sm);
+  padding: 12px var(--page-padding-x);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.results {
+  text-transform: uppercase;
+  font-size: var(--text-size-sm);
+  color: var(--text-color);
+}
