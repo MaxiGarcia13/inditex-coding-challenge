@@ -14,9 +14,10 @@ export function SearchBox() {
     <div className={styles.container}>
       <SearchInput
         placeholder="Search for a smartphone..."
+        aria-label="Search for a smartphone"
         onSearch={handleSearch}
       />
-      <span className={styles.results}>
+      <span className={styles.results} aria-label={`${totalResults} results`}>
         {totalResults}
         {' '}
         results
