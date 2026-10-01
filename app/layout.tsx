@@ -1,4 +1,6 @@
 import { author } from '@package-json';
+import { AppHeader } from '@/components/app-header';
+import '@/styles/global.css';
 
 export default function RootLayout({
   children,
@@ -15,7 +17,11 @@ export default function RootLayout({
         <meta name="description" content={description} />
         <meta name="author" content={author} />
       </head>
-      <body>{children}</body>
+      <body>
+        <AppHeader />
+
+        {children}
+      </body>
     </html>
   );
 }
