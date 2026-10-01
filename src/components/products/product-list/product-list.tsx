@@ -1,5 +1,6 @@
 'use client';
 
+import { useDeferredValue, ViewTransition } from 'react';
 import { useProducts } from '@/hooks/use-products';
 import { ProductCard } from '../product-card';
 import styles from './product-list.module.css';
@@ -10,10 +11,12 @@ export function ProductList() {
   return (
     <ul className={styles.list}>
       {data.map((product) => (
-        <ProductCard
+        <ViewTransition
           key={product.id}
-          product={product}
-        />
+          name={`product-${product.id}`}
+        >
+          <ProductCard product={product} />
+        </ViewTransition>
       ))}
     </ul>
   );

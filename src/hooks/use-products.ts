@@ -1,5 +1,6 @@
 import type { ProductsResponse } from '@/domain/products';
 import { useQuery } from '@tanstack/react-query';
+import { useDeferredValue } from 'react';
 import { getProducts } from '@/services/products';
 import { useNavigation } from './use-navigation';
 
@@ -9,7 +10,7 @@ export function useProducts() {
   const search = getSearchParam('q') ?? '';
 
   const {
-    data: { data, total } = { data: [], total: 0 },
+    data: results = { data: [], total: 0 },
     isLoading,
     error,
   } = useQuery<ProductsResponse>({
@@ -21,11 +22,10 @@ export function useProducts() {
     }),
     refetchOnWindowFocus: true,
     staleTime: 1000 * 60 * 5, // cache for 5 minutes,
-    placeholderData: {
-      data: [],
-      total: 0,
-    },
+    placeholderData: (previousData) => previousData,
   });
+
+  const { data, total } = useDeferredValue(results);
 
   return {
     data,
