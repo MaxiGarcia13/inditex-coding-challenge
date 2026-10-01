@@ -25,7 +25,7 @@ export function ProductSearch() {
         placeholder="Search for a smartphone..."
         aria-label="Search for a smartphone"
         onSearch={handleSearch}
-        initialValue={getSearchParam('q')}
+        initialValue={getSearchParam('q') ?? ''}
       />
       <span className={styles.results} aria-label={`${total} results`}>
         {total}
