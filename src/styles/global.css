@@ -49,7 +49,7 @@ main {
   overflow-y: auto;
   height: 100%;
   padding-bottom: var(--page-padding-y);
-  padding-top: 48px;
+  gap: 48px;
 }
 
 body,
@@ -69,6 +69,19 @@ input {
   margin: 0;
   font: inherit;
   color: inherit;
+}
+
+button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-sm);
+
+  background-color: transparent;
+  color: var(--text-color);
+
+  border: none;
+  cursor: pointer;
 }
 
 @media (max-width: 768px) {
