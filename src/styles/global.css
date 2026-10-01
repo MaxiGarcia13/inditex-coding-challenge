@@ -1,10 +1,3 @@
-body {
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  font-family: var(--font-family);
-  margin: 0;
-}
-
 :root {
   --bg-color: #ffffff;
   --text-color: #000000;
@@ -12,6 +5,7 @@ body {
   --text-light-color: #79736d;
   --text-muted-color: #666666;
 
+  --text-size-sm: 12px;
   --text-size-md: 16px;
 
   --border-color: #000000;
@@ -20,13 +14,56 @@ body {
   --space-sm: 6px;
   --space-md: 12px;
 
-  --page-padding: 40px 24px;
+  --page-padding-x: 40px;
+  --page-padding: 24px var(--page-padding-x);
 
   --font-family: Helvetica, Arial, sans-serif;
+  --font-weight-light: 300;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-family);
+  font-size: var(--text-size-md);
+  font-weight: var(--font-weight-light);
+  margin: 0;
+  overflow: hidden;
+}
+
+main {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+body,
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
 }
 
 @media (max-width: 768px) {
   :root {
-    --page-padding: 24px 16px;
+    --page-padding-x: 16px;
   }
 }
