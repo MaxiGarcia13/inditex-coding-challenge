@@ -9,11 +9,11 @@ export function SearchResultListItem({ result, ...props }: SearchResultListItemP
   return (
     <li className={styles.item} {...props}>
       <img
+        className={styles.item__image}
         src={result.imageUrl}
         alt={result.name}
         width={312}
         height={257}
-        className={styles.item__image}
       />
 
       <footer className={styles.item__info}>
