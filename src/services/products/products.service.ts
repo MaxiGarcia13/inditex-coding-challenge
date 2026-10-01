@@ -6,7 +6,7 @@ import { buildUrl } from '@/utils/url';
 
 export async function getProducts(
   params: ProductsRequest = {},
-): Promise<ProductsResponse['data'] | HttpError | Error> {
+): Promise<ProductsResponse['data']> {
   try {
     const url = buildUrl('/api/v1/products', { ...params });
 
