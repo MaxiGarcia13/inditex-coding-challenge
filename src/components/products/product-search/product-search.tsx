@@ -7,7 +7,7 @@ import styles from './product-search.module.css';
 
 export function ProductSearch() {
   const { setSearchParam, deleteSearchParam, getSearchParam } = useNavigation();
-  const { total } = useProducts(getSearchParam('q') ?? '');
+  const { total } = useProducts();
 
   const handleSearch = (search: string) => {
     const value = search.trim();
