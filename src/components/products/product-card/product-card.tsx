@@ -1,4 +1,5 @@
 import type { Product } from '@/domain/products';
+import { useNavigation } from '@/hooks/use-navigation';
 import styles from './product-card.module.css';
 
 interface ProductCardProps extends React.HTMLAttributes<HTMLLIElement> {
@@ -6,8 +7,17 @@ interface ProductCardProps extends React.HTMLAttributes<HTMLLIElement> {
 }
 
 export function ProductCard({ product, ...props }: ProductCardProps) {
+  const { navigateTo } = useNavigation();
+
+  const handleClick = (event: React.MouseEvent<HTMLLIElement>) => {
+    event.preventDefault();
+    navigateTo(`/products/${product.id}`);
+
+    event.stopPropagation();
+  };
+
   return (
-    <li className={styles.card} {...props}>
+    <li className={styles.card} {...props} onClick={handleClick}>
       <div className={styles.card__image_container}>
         <img
           className={styles.card__image}
