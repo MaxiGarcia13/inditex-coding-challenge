@@ -1,5 +1,4 @@
 import type { NextApiRequest } from 'next';
-import type { ProductsRequest } from '@/domain/products';
 import process from 'node:process';
 import { NextResponse } from 'next/server';
 import { uniqueBy } from '@/utils/array';
@@ -7,12 +6,16 @@ import { isHttpError } from '@/utils/http';
 import { buildUrl } from '@/utils/url';
 
 export async function GET(
-  req: NextApiRequest & { query?: ProductsRequest },
+  request: NextApiRequest,
 ) {
   try {
-    const { search, limit, offset } = req.query ?? {};
+    const { searchParams } = new URL(request.url);
 
-    const url = buildUrl(`${process.env.API_URL}/products`, { search, limit, offset });
+    const url = buildUrl(`${process.env.API_URL}/products`, {
+      search: searchParams.get('search'),
+      limit: searchParams.get('limit'),
+      offset: searchParams.get('offset'),
+    });
 
     const response = await fetch(url, {
       method: 'GET',
@@ -26,7 +29,10 @@ export async function GET(
     const uniqueData = uniqueBy(data, 'id');
 
     return NextResponse.json(
-      { data: uniqueData },
+      {
+        data: uniqueData,
+        total: uniqueData.length,
+      },
       { status: response.status },
     );
   } catch (error) {
