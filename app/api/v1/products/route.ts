@@ -2,6 +2,7 @@ import type { NextApiRequest } from 'next';
 import type { ProductsRequest } from '@/domain/products';
 import process from 'node:process';
 import { NextResponse } from 'next/server';
+import { uniqueBy } from '@/utils/array';
 import { isHttpError } from '@/utils/http';
 import { buildUrl } from '@/utils/url';
 
@@ -20,9 +21,12 @@ export async function GET(
         'x-api-key': process.env.API_KEY!,
       },
     });
+    const data = await response.json();
+
+    const uniqueData = uniqueBy(data, 'id');
 
     return NextResponse.json(
-      { data: await response.json() },
+      { data: uniqueData },
       { status: response.status },
     );
   } catch (error) {
