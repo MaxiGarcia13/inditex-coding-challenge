@@ -1,18 +1,32 @@
+type Params = Record<string, string | number | boolean | undefined | null>;
+
 export function buildUrl(
   baseUrl: string,
-  params?: Record<string, string | number | boolean | undefined | null>,
+  params: Params = {},
 ) {
-  const url = new URL(baseUrl);
+  const paramsString = buildParams(params);
 
-  if (params) {
-    for (const [key, value] of Object.entries(params)) {
-      const stringValue = value?.toString().trim();
+  if (paramsString) {
+    return `${baseUrl}?${paramsString}`;
+  }
 
-      if (stringValue && stringValue.length > 0) {
-        url.searchParams.set(key, stringValue);
-      }
+  return baseUrl;
+}
+
+function buildParams(params: Params) {
+  const searchParams = new URLSearchParams();
+
+  for (const [key, value] of Object.entries(params)) {
+    const stringValue = value?.toString().trim();
+
+    if (stringValue && stringValue.length > 0) {
+      searchParams.set(key, stringValue);
     }
   }
 
-  return url.toString();
+  if (searchParams.size > 0) {
+    return searchParams.toString();
+  }
+
+  return null;
 }
