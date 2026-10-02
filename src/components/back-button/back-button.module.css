@@ -1,8 +1,8 @@
-.container {
+.back {
   width: 100%;
   padding: var(--space-md) var(--page-padding-x);
 }
 
-.button {
+.back__button {
   text-transform: uppercase;
 }

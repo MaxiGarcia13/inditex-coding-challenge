@@ -12,8 +12,8 @@ export function BackButton({ label = 'Back', ...props }: BackButtonProps) {
   const { goBack } = useNavigation();
 
   return (
-    <div className={styles.container}>
-      <button onClick={goBack} {...props} className={styles.button}>
+    <div className={styles.back}>
+      <button onClick={goBack} {...props} className={styles.back__button}>
         <ChevronLeftIcon />
         {label}
       </button>
