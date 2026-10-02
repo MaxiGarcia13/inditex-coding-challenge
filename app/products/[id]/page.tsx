@@ -1,7 +1,7 @@
 import type { ProductBase } from '@/domain/products';
 import process from 'node:process';
 import { BackButton } from '@/components/back-button';
-import { ProductDetail } from '@/components/products/product-detail';
+import { ProductForm } from '@/components/products';
 import { getProductDetail } from '@/services/products';
 import { isHttpError } from '@/utils/http';
 
@@ -20,7 +20,7 @@ export default async function Page({ params }: PageProps) {
   return (
     <>
       <BackButton />
-      <ProductDetail product={product} />
+      <ProductForm product={product} />
     </>
   );
 }

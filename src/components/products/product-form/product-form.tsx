@@ -1,24 +1,24 @@
 'use client';
 
-import type { ProductDetail as ProductDetailType } from '@/domain/products';
+import type { ProductDetail } from '@/domain/products';
 import { useState } from 'react';
 import { ColorSelector } from './color-selector';
-import styles from './product-detail.module.css';
+import styles from './product-form.module.css';
 import { StorageSelector } from './storage-selector';
 
-interface ProductDetailProps {
-  product: ProductDetailType;
+interface ProductFormProps {
+  product: ProductDetail;
 }
 
-export function ProductDetail({ product }: ProductDetailProps) {
+export function ProductForm({ product }: ProductFormProps) {
   const [selectedColor, setSelectedColor] = useState(product.colorOptions[0]);
   const [selectedStorage, setSelectedStorage] = useState(null);
 
   return (
-    <div className={styles.detail}>
-      <div className={styles.detail__imageContainer}>
+    <div className={styles.form}>
+      <div className={styles['form__image-Container']}>
         <img
-          className={styles.detail__image}
+          className={styles.form__image}
           src={selectedColor?.imageUrl}
           alt={selectedColor?.name}
           height={630}
@@ -27,11 +27,11 @@ export function ProductDetail({ product }: ProductDetailProps) {
       </div>
 
       <div>
-        <div className={styles.detail__content}>
-          <header className={styles.detail__content__header}>
-            <h1 className={styles.detail__content__header__title}>{product.name}</h1>
+        <div className={styles.form__content}>
+          <header className={styles.form__content__header}>
+            <h1 className={styles.form__content__header__title}>{product.name}</h1>
 
-            <p className={styles.detail__content__header__price}>
+            <p className={styles.form__content__header__price}>
               From
               {' '}
               {product.basePrice}
@@ -39,8 +39,8 @@ export function ProductDetail({ product }: ProductDetailProps) {
             </p>
           </header>
 
-          <div className={styles.detail__content__storage}>
-            <h2 className={styles.detail__content__title}>
+          <div className={styles.form__content__storage}>
+            <h2 className={styles.form__content__title}>
               Storage: How much space do you need?
             </h2>
 
@@ -51,8 +51,8 @@ export function ProductDetail({ product }: ProductDetailProps) {
             />
           </div>
 
-          <div className={styles.detail__content__color}>
-            <h2 className={styles.detail__content__title}>
+          <div className={styles.form__content__color}>
+            <h2 className={styles.form__content__title}>
               Color. Pick your favourite.
             </h2>
 
