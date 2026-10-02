@@ -26,7 +26,7 @@ export function ProductCard({ product, ...props }: ProductCardProps) {
           src={product.imageUrl}
           alt={product.name}
           width={312}
-          height={257}
+          height={230}
         />
       </div>
 

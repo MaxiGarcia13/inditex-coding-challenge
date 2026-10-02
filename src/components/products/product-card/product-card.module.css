@@ -2,7 +2,7 @@
   position: relative;
   list-style: none;
   border: 0.5px solid var(--border-color);
-  height: 444px;
+  height: 344px;
   min-width: 344px;
   display: flex;
   flex-direction: column;
@@ -27,7 +27,7 @@
   flex: 1;
   object-fit: contain;
   width: 312px;
-  max-height: 257px;
+  height: 230px;
 }
 
 .card__info {
