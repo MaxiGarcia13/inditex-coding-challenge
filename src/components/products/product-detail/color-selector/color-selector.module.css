@@ -1,0 +1,16 @@
+.selector {
+  gap: 16px;
+  width: auto;
+}
+
+.option {
+  width: 24px;
+  height: 24px;
+  padding: 1px;
+}
+
+.swatch {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
