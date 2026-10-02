@@ -1,0 +1,15 @@
+.selector {
+  width: 100%;
+}
+
+.option {
+  flex: 1;
+  padding: var(--space-lg);
+  font-size: var(--text-size-sm);
+  font-weight: var(--font-weight-light);
+  text-align: center;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  max-width: 100px;
+  text-transform: uppercase;
+}
