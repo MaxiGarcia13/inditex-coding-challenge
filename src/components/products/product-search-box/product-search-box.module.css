@@ -1,4 +1,4 @@
-.container {
+.search {
   gap: var(--space-sm);
   padding: 12px var(--page-padding-x);
   display: flex;
@@ -6,7 +6,7 @@
   gap: var(--space-md);
 }
 
-.results {
+.search__results {
   text-transform: uppercase;
   font-size: var(--text-size-xs);
   color: var(--text-color);
