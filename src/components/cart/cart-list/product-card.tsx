@@ -12,31 +12,31 @@ interface ProductCardProps extends HtmlHTMLAttributes<HTMLLIElement> {
 
 export function ProductCard({ product, onRemove, className, ...props }: ProductCardProps) {
   return (
-    <li className={cn(styles.cart__list__item, className)} {...props}>
-      <div className={styles.cart__list__item__image__container}>
+    <li className={cn(styles.item, className)} {...props}>
+      <div className={styles.item__media}>
         <ProductImage
-          className={styles.cart__list__item__image}
+          className={styles.item__image}
           productId={product.id}
           src={product.colorOption.imageUrl}
           alt={product.name}
         />
       </div>
-      <div className={styles.cart__list__item__info}>
-        <div className={styles.cart__list__item__info__content}>
-          <header className={styles.cart__list__item__info__header}>
-            <h3 className={styles.cart__list__item__info__text}>{product.name}</h3>
-            <p className={styles.cart__list__item__info__text}>
+      <div className={styles.item__body}>
+        <div className={styles.item__details}>
+          <header className={styles.item__header}>
+            <h3 className={styles.item__text}>{product.name}</h3>
+            <p className={styles.item__text}>
               {`${product.storageOption.capacity} | ${product.colorOption.name}`}
             </p>
           </header>
 
-          <p className={styles.cart__list__item__info__text}>
+          <p className={styles.item__text}>
             {`${product.storageOption.price} EUR`}
           </p>
 
           {
             product.quantity > 1 && (
-              <p className={styles.cart__list__item__info__text}>
+              <p className={styles.item__text}>
                 {`Quantity ${product.quantity}`}
               </p>
             )
@@ -45,7 +45,7 @@ export function ProductCard({ product, onRemove, className, ...props }: ProductC
 
         <Button
           variant="ghost"
-          className={styles.card_list__item__button}
+          className={styles.item__remove}
           onClick={onRemove}
         >
           Remove

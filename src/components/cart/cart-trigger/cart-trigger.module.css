@@ -1,4 +1,4 @@
-.link {
+.trigger {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -7,7 +7,7 @@
   color: var(--text-color);
 }
 
-.link__counter {
+.trigger__counter {
   font-size: var(--text-size-md);
   font-weight: var(--font-weight-light);
   text-transform: uppercase;
