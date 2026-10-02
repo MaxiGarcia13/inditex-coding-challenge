@@ -1,13 +1,9 @@
 import type { Metadata } from 'next';
-import { CartList } from '@/components/cart/cart-list';
+import { Cart } from '@/components/cart';
 import { APP_METADATA } from '@/constants/metadata';
 
 export default function CartPage() {
-  return (
-    <>
-      <CartList />
-    </>
-  );
+  return <Cart />;
 }
 
 const title = `Cart - ${APP_METADATA.title}`;

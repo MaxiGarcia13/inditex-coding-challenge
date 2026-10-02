@@ -1,14 +1,8 @@
-.cart__title {
-  padding: var(--space-xl) 0;
-  font-size: var(--text-size-lg);
-  font-weight: var(--font-weight-light);
-  text-transform: uppercase;
-}
-
 .cart__list {
   display: flex;
   flex-direction: column;
   gap: var(--space-xl);
+  overflow-y: auto;
 }
 
 .cart__list__item {

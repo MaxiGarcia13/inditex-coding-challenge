@@ -9,11 +9,11 @@ interface BackButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> 
 }
 
 export function BackButton({ label = 'Back', ...props }: BackButtonProps) {
-  const { navigateBack } = useNavigation();
+  const { goBack } = useNavigation();
 
   return (
     <div className={styles.container}>
-      <button onClick={navigateBack} {...props} className={styles.button}>
+      <button onClick={goBack} {...props} className={styles.button}>
         <ChevronLeftIcon />
         {label}
       </button>

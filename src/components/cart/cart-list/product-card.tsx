@@ -1,16 +1,18 @@
+import type { HtmlHTMLAttributes } from 'react';
 import type { ProductCart } from '@/domain/products';
+import { cn } from '@maxigarcia/js-utils';
 import { Button } from '@/components/button';
 import { ProductImage } from '@/components/products/product-image';
 import styles from './cart-list.module.css';
 
-interface ProductCardProps {
+interface ProductCardProps extends HtmlHTMLAttributes<HTMLLIElement> {
   product: ProductCart;
   onRemove: () => void;
 }
 
-export function ProductCard({ product, onRemove }: ProductCardProps) {
+export function ProductCard({ product, onRemove, className, ...props }: ProductCardProps) {
   return (
-    <div className={styles.cart__list__item}>
+    <li className={cn(styles.cart__list__item, className)} {...props}>
       <div className={styles.cart__list__item__image__container}>
         <ProductImage
           className={styles.cart__list__item__image}
@@ -43,6 +45,6 @@ export function ProductCard({ product, onRemove }: ProductCardProps) {
           Remove
         </Button>
       </div>
-    </div>
+    </li>
   );
 }

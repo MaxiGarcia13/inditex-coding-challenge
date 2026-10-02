@@ -1,0 +1,29 @@
+.cart {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+  position: relative;
+}
+
+.cart__title {
+  padding: var(--space-xl) 0;
+  font-size: var(--text-size-lg);
+  font-weight: var(--font-weight-light);
+  text-transform: uppercase;
+}
+
+.cart__footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: var(--space-xl);
+}
+
+.cart__footer__button__back {
+  max-width: 200px;
+}
+
+.cart__footer__button__pay {
+  max-width: 260px;
+}

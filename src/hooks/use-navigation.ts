@@ -36,13 +36,13 @@ export function useNavigation() {
     router.push(destination);
   };
 
-  const navigateBack = () => {
+  const goBack = () => {
     router.back();
   };
 
   return {
     navigateTo,
-    navigateBack,
+    goBack,
     getSearchParam,
     setSearchParam,
     deleteSearchParam,
