@@ -1,6 +1,5 @@
 import type { ProductsRequest, ProductSummariesResponse } from '@/domain/products';
 import { mapHttpError } from '@/adapters/http-error';
-import { mapProductsResponse } from '@/adapters/products';
 import { buildUrl } from '@/utils/url';
 import { PRODUCTS_API_ENDPOINT } from './consts';
 
@@ -12,7 +11,7 @@ export async function getProductSummaries(
 
     const response = await fetch(url);
 
-    return mapProductsResponse(await response.json());
+    return response.json();
   } catch (error) {
     throw mapHttpError(error);
   }
