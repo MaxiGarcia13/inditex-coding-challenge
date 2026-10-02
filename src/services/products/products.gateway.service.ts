@@ -1,6 +1,6 @@
 import type { ProductBase, ProductDetail, ProductsRequest, ProductSummary } from '@/domain/products';
 import process from 'node:process';
-import { buildUrl } from '@/utils/url';
+import { addParamsToUrl } from '@maxigarcia/js-utils';
 
 type ProductsParams = Partial<ProductsRequest & Pick<ProductBase, 'id'>>;
 
@@ -14,7 +14,7 @@ const PRODUCTS_OPTIONS = {
 };
 
 export async function getProductsGateway(params: ProductsParams = {}): Promise<Array<ProductSummary>> {
-  const url = buildUrl(`${PRODUCTS_API_ENDPOINT}`, { ...params });
+  const url = addParamsToUrl(`${PRODUCTS_API_ENDPOINT}`, { ...params });
 
   return fetch(url, PRODUCTS_OPTIONS).then((response) => response.json());
 }
@@ -23,7 +23,7 @@ export async function getProductGateway(
   id: string,
   params: ProductsParams = {},
 ): Promise<ProductDetail> {
-  const url = buildUrl(`${PRODUCTS_API_ENDPOINT}/${id}`, { ...params });
+  const url = addParamsToUrl(`${PRODUCTS_API_ENDPOINT}/${id}`, { ...params });
 
   return fetch(url, PRODUCTS_OPTIONS).then((response) => response.json());
 }

@@ -37,3 +37,8 @@ export interface ProductStorageOption {
   capacity: string;
   price: number;
 }
+
+export interface ProductCart extends Omit<ProductBase, 'basePrice'> {
+  colorOption: ProductColorOption;
+  storageOption: ProductStorageOption;
+}

@@ -1,8 +1,8 @@
 import type { NextApiRequest } from 'next';
+import { uniqueBy } from '@maxigarcia/js-utils';
 import { NextResponse } from 'next/server';
 import { mapProductSummariesResponse } from '@/adapters/products';
 import { getProductsGateway } from '@/services/products/products.gateway.service';
-import { uniqueBy } from '@/utils/array';
 import { isHttpError } from '@/utils/http';
 
 export async function GET(
