@@ -1,6 +1,5 @@
 import type { ProductSummary } from '@/domain/products';
 import { cn } from '@maxigarcia/js-utils';
-import { ViewTransition } from 'react';
 import { ProductCard } from '../product-card';
 import styles from './product-list.module.css';
 
@@ -13,12 +12,10 @@ export function ProductList({ products, className, direction = 'vertical', ...pr
   return (
     <ul className={cn(styles.list, styles[`list--${direction}`], className)} {...props}>
       {products.map((product) => (
-        <ViewTransition
+        <ProductCard
           key={product.id}
-          name={`product-${product.id}`}
-        >
-          <ProductCard product={product} />
-        </ViewTransition>
+          product={product}
+        />
       ))}
     </ul>
   );
