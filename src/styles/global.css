@@ -5,14 +5,20 @@
   --text-light-color: #79736d;
   --text-muted-color: #666666;
 
-  --text-size-sm: 12px;
+  --text-size-xs: 12px;
+  --text-size-sm: 14px;
   --text-size-md: 16px;
+  --text-size-lg: 20px;
+  --text-size-xl: 24px;
 
   --border-color: #000000;
+  --border-color-light: #cccccc;
 
   --space-xs: 4px;
   --space-sm: 6px;
   --space-md: 12px;
+  --space-lg: 24px;
+  --space-xl: 40px;
 
   --page-padding-x: 40px;
   --page-padding-y: 24px;
