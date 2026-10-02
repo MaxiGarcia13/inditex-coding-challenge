@@ -39,6 +39,8 @@ export interface ProductStorageOption {
 }
 
 export interface ProductCart extends Omit<ProductBase, 'basePrice'> {
+  key: string;
   colorOption: ProductColorOption;
   storageOption: ProductStorageOption;
+  quantity: number;
 }
