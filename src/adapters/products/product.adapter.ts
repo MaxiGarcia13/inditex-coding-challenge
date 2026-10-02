@@ -1,5 +1,5 @@
-import type { Product } from '@/domain/products';
+import type { ProductDetail } from '@/domain/products';
 
-export function mapProductResponse(response: Product): Product {
+export function mapProductResponse(response: ProductDetail): ProductDetail {
   return response;
 }
