@@ -1,9 +1,8 @@
 import type { NextApiRequest } from 'next';
-import process from 'node:process';
 import { NextResponse } from 'next/server';
+import { getProductsGateway } from '@/services/products/products.gateway.service';
 import { uniqueBy } from '@/utils/array';
 import { isHttpError } from '@/utils/http';
-import { buildUrl } from '@/utils/url';
 
 export async function GET(
   request: NextApiRequest,
@@ -11,19 +10,12 @@ export async function GET(
   try {
     const { searchParams } = new URL(request.url);
 
-    const url = buildUrl(`${process.env.API_URL}/products`, {
+    const response = await getProductsGateway({
       search: searchParams.get('search'),
-      limit: searchParams.get('limit'),
-      offset: searchParams.get('offset'),
+      limit: Number(searchParams.get('limit')),
+      offset: Number(searchParams.get('offset')),
     });
 
-    const response = await fetch(url, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        'x-api-key': process.env.API_KEY!,
-      },
-    });
     const data = await response.json();
 
     const uniqueData = uniqueBy(data, 'id');
