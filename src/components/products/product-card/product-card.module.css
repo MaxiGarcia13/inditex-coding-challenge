@@ -1,6 +1,5 @@
 .card {
   position: relative;
-  list-style: none;
   border: 0.5px solid var(--border-color);
   min-height: 0;
   padding: var(--space-md);

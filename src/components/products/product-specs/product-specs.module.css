@@ -15,9 +15,6 @@
 .specs__list {
   display: flex;
   flex-direction: column;
-  list-style: none;
-  padding: 0;
-  margin: 0;
 }
 
 .specs__list__item {
