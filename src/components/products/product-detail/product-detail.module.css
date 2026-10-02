@@ -51,13 +51,14 @@
   text-transform: uppercase;
 }
 
+.detail__content__color,
 .detail__content__storage {
   display: flex;
   flex-direction: column;
   gap: var(--space-lg);
 }
 
-.detail__content__storage__title {
+.detail__content__title {
   font-size: var(--text-size-sm);
   font-weight: var(--font-weight-light);
   text-transform: uppercase;

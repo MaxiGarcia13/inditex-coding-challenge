@@ -40,7 +40,7 @@ export function ProductDetail({ product }: ProductDetailProps) {
           </header>
 
           <div className={styles.detail__content__storage}>
-            <h2 className={styles.detail__content__storage__title}>
+            <h2 className={styles.detail__content__title}>
               Storage: How much space do you need?
             </h2>
 
@@ -50,6 +50,13 @@ export function ProductDetail({ product }: ProductDetailProps) {
                 label: option.capacity,
               }))}
             />
+          </div>
+
+          <div className={styles.detail__content__color}>
+            <h2 className={styles.detail__content__title}>
+              Color. Pick your favourite.
+            </h2>
+
           </div>
 
         </div>
