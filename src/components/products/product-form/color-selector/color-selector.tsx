@@ -12,25 +12,28 @@ interface ColorSelectorProps {
 
 export function ColorSelector({ options, value, onChange }: ColorSelectorProps) {
   return (
-    <OptionSelector
-      aria-label="Color"
-      className={styles.selector}
-      optionClassName={styles.option}
-      name="color"
-      value={value.name}
-      onChange={(value) => onChange?.(options.find((option) => option.name === value))}
-      options={options.map((option) => ({
-        value: option.name,
-        label: option.name,
-        hexCode: option.hexCode,
-      }))}
-      renderOption={(option) => (
-        <span
-          className={styles.swatch}
-          style={{ backgroundColor: option.hexCode }}
-          aria-hidden
-        />
-      )}
-    />
+    <div className={styles.container}>
+      <OptionSelector
+        aria-label="Color"
+        className={styles.selector}
+        optionClassName={styles.option}
+        name="color"
+        value={value.name}
+        onChange={(value) => onChange?.(options.find((option) => option.name === value))}
+        options={options.map((option) => ({
+          value: option.name,
+          label: option.name,
+          hexCode: option.hexCode,
+        }))}
+        renderOption={(option) => (
+          <span
+            className={styles.swatch}
+            style={{ backgroundColor: option.hexCode }}
+            aria-hidden
+          />
+        )}
+      />
+      <span className={styles.label}>{value?.name}</span>
+    </div>
   );
 }
