@@ -95,3 +95,12 @@ button {
     --page-padding-x: 16px;
   }
 }
+
+.page-section {
+  padding: 0 var(--page-padding-x);
+  max-width: 1200px;
+  min-width: 380px;
+  gap: var(--space-xl);
+  margin: 0 auto;
+  width: 100%;
+}

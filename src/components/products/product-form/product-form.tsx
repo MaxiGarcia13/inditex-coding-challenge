@@ -1,6 +1,7 @@
 'use client';
 
 import type { ProductDetail } from '@/domain/products';
+import { cn } from '@maxigarcia/js-utils';
 import { useState } from 'react';
 import { Button } from '@/components/button';
 import { canBeAddedToCart } from '@/domain/products';
@@ -20,7 +21,7 @@ export function ProductForm({ product }: ProductFormProps) {
   const isFormValid = canBeAddedToCart({ storage: selectedStorage, color: selectedColor });
 
   return (
-    <div className={styles.form}>
+    <div className={cn('page-section', styles.form)}>
       <div className={styles['form__image-Container']}>
         <ProductImage
           productId={product.id}

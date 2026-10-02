@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import type { ProductBase } from '@/domain/products';
 import process from 'node:process';
 import { BackButton } from '@/components/back-button';
-import { ProductForm } from '@/components/products';
+import { ProductForm, ProductSpecs } from '@/components/products';
 import { APP_METADATA } from '@/constants/metadata';
 import { getProductDetail } from '@/services/products';
 import { isHttpError } from '@/utils/http';
@@ -24,6 +24,7 @@ export default async function Page({ params }: PageProps) {
     <>
       <BackButton />
       <ProductForm product={product} />
+      <ProductSpecs product={product} />
     </>
   );
 }
