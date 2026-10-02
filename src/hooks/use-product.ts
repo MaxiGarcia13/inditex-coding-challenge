@@ -1,4 +1,4 @@
-import type { Product } from '@/domain/products';
+import type { ProductDetail } from '@/domain/products';
 import { useQuery } from '@tanstack/react-query';
 import { useDeferredValue } from 'react';
 import { getProduct } from '@/services/products/product.service';
@@ -8,12 +8,12 @@ export function useProduct(id: string) {
     data: results = null,
     isLoading,
     error,
-  } = useQuery<Product>({
+  } = useQuery<ProductDetail>({
     queryKey: ['products', id],
     queryFn: () => getProduct(id),
     refetchOnWindowFocus: true,
     staleTime: 1000 * 60 * 5, // cache for 5 minutes,
-    placeholderData: (previousData) => previousData,
+    placeholderData: (previousData) => ({ id, colorOptions: [], ...previousData } as ProductDetail),
   });
 
   const data = useDeferredValue(results);
