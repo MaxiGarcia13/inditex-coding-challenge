@@ -2,25 +2,25 @@
 
 import type { ProductDetail as ProductDetailType } from '@/domain/products';
 import { useState } from 'react';
-import { OptionSelector } from '@/components/option-selector';
+import { ColorSelector } from './color-selector';
 import styles from './product-detail.module.css';
+import { StorageSelector } from './storage-selector';
 
 interface ProductDetailProps {
   product: ProductDetailType;
 }
 
 export function ProductDetail({ product }: ProductDetailProps) {
-  const options = product?.colorOptions ?? [];
-  const [selectedOption] = useState<ProductDetailType['colorOptions'][number]>(options[0]);
-  const storageOptions = product?.storageOptions ?? [];
+  const [selectedColor, setSelectedColor] = useState(product.colorOptions[0]);
+  const [selectedStorage, setSelectedStorage] = useState(null);
 
   return (
     <div className={styles.detail}>
       <div className={styles.detail__imageContainer}>
         <img
           className={styles.detail__image}
-          src={selectedOption?.imageUrl}
-          alt={selectedOption?.name}
+          src={selectedColor?.imageUrl}
+          alt={selectedColor?.name}
           height={630}
           width={510}
         />
@@ -44,11 +44,10 @@ export function ProductDetail({ product }: ProductDetailProps) {
               Storage: How much space do you need?
             </h2>
 
-            <OptionSelector
-              options={storageOptions.map((option) => ({
-                value: option.capacity,
-                label: option.capacity,
-              }))}
+            <StorageSelector
+              value={selectedStorage}
+              options={product.storageOptions}
+              onChange={setSelectedStorage}
             />
           </div>
 
@@ -57,8 +56,12 @@ export function ProductDetail({ product }: ProductDetailProps) {
               Color. Pick your favourite.
             </h2>
 
+            <ColorSelector
+              value={selectedColor}
+              options={product.colorOptions}
+              onChange={setSelectedColor}
+            />
           </div>
-
         </div>
       </div>
     </div>
