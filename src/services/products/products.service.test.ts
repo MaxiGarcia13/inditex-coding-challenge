@@ -1,9 +1,9 @@
 import type { HttpError } from '@/domain/http';
-import type { ProductsResponse } from '@/domain/products';
+import type { ProductSummariesResponse } from '@/domain/products';
 import { describe, expect, it, vi } from 'vitest';
-import { getProducts } from './products.service';
+import { getProductSummaries } from './product-summary.service';
 
-const data: ProductsResponse['data'] = [
+const data: ProductSummariesResponse['data'] = [
   {
     id: '1',
     brand: 'Brand 1',
@@ -23,7 +23,7 @@ describe('products service', () => {
       } as unknown as Response),
     );
 
-    const products = await getProducts();
+    const products = await getProductSummaries();
 
     expect(products).toStrictEqual(data);
   });
@@ -38,6 +38,6 @@ describe('products service', () => {
       Promise.reject(error),
     );
 
-    await expect(getProducts()).rejects.toThrow(error);
+    await expect(getProductSummaries()).rejects.toThrow(error);
   });
 });
