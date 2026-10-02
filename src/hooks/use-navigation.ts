@@ -1,6 +1,9 @@
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 
 type SearchParamKey = 'q';
+interface NavigateToOptions {
+  keepSearchParams?: boolean;
+}
 
 export function useNavigation() {
   const router = useRouter();
@@ -22,10 +25,6 @@ export function useNavigation() {
   const getSearchParam = (key: SearchParamKey) => {
     return searchParams.get(key);
   };
-
-  interface NavigateToOptions {
-    keepSearchParams?: boolean;
-  }
 
   const navigateTo = (path: string, { keepSearchParams = false }: NavigateToOptions = {}) => {
     let destination = path;
