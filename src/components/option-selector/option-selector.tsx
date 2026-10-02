@@ -44,6 +44,7 @@ export function OptionSelector<
         return (
           <button
             key={option.value}
+            id={option.value}
             type="button"
             role="radio"
             name={name}
