@@ -1,4 +1,4 @@
-import type { NextApiRequest } from 'next';
+import type { NextRequest } from 'next/server';
 import type { ProductBase } from '@/domain/products';
 import { NextResponse } from 'next/server';
 import { mapProductDetailResponse } from '@/adapters/products';
@@ -6,7 +6,7 @@ import { getProductGateway } from '@/services/products/products.gateway.service'
 import { isHttpError } from '@/utils/http';
 
 export async function GET(
-  _: NextApiRequest,
+  _: NextRequest,
   { params }: { params: Promise<Pick<ProductBase, 'id'>> },
 ) {
   try {

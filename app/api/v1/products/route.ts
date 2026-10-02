@@ -1,15 +1,13 @@
-import type { NextApiRequest } from 'next';
+import type { NextRequest } from 'next/server';
 import { uniqueBy } from '@maxigarcia/js-utils';
 import { NextResponse } from 'next/server';
 import { mapProductSummariesResponse } from '@/adapters/products';
 import { getProductsGateway } from '@/services/products/products.gateway.service';
 import { isHttpError } from '@/utils/http';
 
-export async function GET(
-  request: NextApiRequest,
-) {
+export async function GET(request: NextRequest) {
   try {
-    const { searchParams } = new URL(request.url);
+    const { searchParams } = request.nextUrl;
 
     const response = await getProductsGateway({
       search: searchParams.get('search'),
