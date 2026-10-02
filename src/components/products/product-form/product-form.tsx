@@ -41,7 +41,7 @@ export function ProductForm({ product }: ProductFormProps) {
 
   return (
     <div className={cn('page-section', styles.form)}>
-      <div className={styles['form__image-Container']}>
+      <div className={styles.form__media}>
         <ProductImage
           productId={product.id}
           className={styles.form__image}
@@ -55,10 +55,10 @@ export function ProductForm({ product }: ProductFormProps) {
 
       <div>
         <div className={styles.form__content}>
-          <header className={styles.form__content__header}>
-            <h1 className={styles.form__content__header__title}>{product.name}</h1>
+          <header className={styles.form__header}>
+            <h1 className={styles.form__title}>{product.name}</h1>
 
-            <p className={styles.form__content__header__price}>
+            <p className={styles.form__price}>
               {
                 selectedStorage
                   ? `${selectedStorage.price} EUR`
@@ -67,8 +67,8 @@ export function ProductForm({ product }: ProductFormProps) {
             </p>
           </header>
 
-          <div className={styles.form__content__storage}>
-            <h2 className={styles.form__content__title}>
+          <div className={styles.form__storage}>
+            <h2 className={styles.form__label}>
               Storage: How much space do you need?
             </h2>
 
@@ -79,8 +79,8 @@ export function ProductForm({ product }: ProductFormProps) {
             />
           </div>
 
-          <div className={styles.form__content__color}>
-            <h2 className={styles.form__content__title}>
+          <div className={styles.form__color}>
+            <h2 className={styles.form__label}>
               Color. Pick your favourite.
             </h2>
 

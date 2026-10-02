@@ -7,7 +7,7 @@
   padding-bottom: var(--space-xl);
 }
 
-.form__image-container {
+.form__media {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -29,32 +29,32 @@
   gap: 40px;
 }
 
-.form__content__header {
+.form__header {
   display: flex;
   flex-direction: column;
   gap: var(--space-md);
 }
 
-.form__content__header__title {
+.form__title {
   font-size: var(--text-size-xl);
   font-weight: var(--font-weight-light);
   text-transform: uppercase;
 }
 
-.form__content__header__price {
+.form__price {
   font-size: var(--text-size-lg);
   font-weight: var(--font-weight-light);
   text-transform: uppercase;
 }
 
-.form__content__color,
-.form__content__storage {
+.form__storage,
+.form__color {
   display: flex;
   flex-direction: column;
   gap: var(--space-lg);
 }
 
-.form__content__title {
+.form__label {
   font-size: var(--text-size-sm);
   font-weight: var(--font-weight-light);
   text-transform: uppercase;
