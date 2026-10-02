@@ -6,7 +6,7 @@ See [docs/requirements.md](./docs/requirements.md) for the full challenge requir
 
 ## Technical decisions
 
-See [docs/decisions.md](./docs/decisions.md) for the main technical choices behind this solution.
+See [docs/technical-decisions.md](./docs/technical-decisions.md) for the main technical choices behind this solution.
 
 ## Stack
 
