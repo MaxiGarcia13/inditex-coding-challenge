@@ -10,9 +10,9 @@ export function Button({ className, variant = 'primary', ...props }: ButtonProps
     <button
       className={
         cn(
-          styles.button,
           className,
-          variant && styles[`button--${variant}`],
+          styles.button,
+          typeof variant === 'string' && variant && styles[`button--${variant}`],
         )
       }
       {...props}

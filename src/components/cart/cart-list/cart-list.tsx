@@ -12,13 +12,15 @@ export function CartList({ products }: CartListProps) {
 
   return (
     <ul className={styles.cart__list}>
-      {products.map((product) => (
-        <ProductCard
-          key={product.id}
-          product={product}
-          onRemove={() => removeProduct(product)}
-        />
-      ))}
+      {products.map((product) => {
+        return (
+          <ProductCard
+            key={product.id}
+            product={product}
+            onRemove={() => removeProduct(product)}
+          />
+        );
+      })}
     </ul>
   );
 }

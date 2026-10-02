@@ -11,7 +11,7 @@ export function Cart() {
   const products = useProductCart((state) => state.products);
   const total = products.reduce((acc, product) => acc + product.storageOption.price, 0);
 
-  const { goBack } = useNavigation();
+  const { navigateTo } = useNavigation();
 
   return (
     <section className={cn('page-section', styles.cart)}>
@@ -25,22 +25,29 @@ export function Cart() {
         <Button
           variant="secondary"
           className={styles.cart__footer__button__back}
-          onClick={() => goBack()}
+          onClick={() => navigateTo('/')}
         >
           Continue shopping
         </Button>
 
-        <span className={styles.cart__footer__total}>
-          <span>Total</span>
-          <span>{`${total} EUR`}</span>
-        </span>
+        {
+          products.length > 0 && (
+            <>
+              <span className={styles.cart__footer__total}>
+                <span>Total</span>
+                <span>{`${total} EUR`}</span>
+              </span>
 
-        <Button
-          variant="primary"
-          className={styles.cart__footer__button__pay}
-        >
-          Pay
-        </Button>
+              <Button
+                variant="primary"
+                className={styles.cart__footer__button__pay}
+
+              >
+                Pay
+              </Button>
+            </>
+          )
+        }
       </footer>
     </section>
   );

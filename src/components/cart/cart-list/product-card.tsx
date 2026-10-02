@@ -19,8 +19,6 @@ export function ProductCard({ product, onRemove, className, ...props }: ProductC
           productId={product.id}
           src={product.colorOption.imageUrl}
           alt={product.name}
-          width={262}
-          height={324}
         />
       </div>
       <div className={styles.cart__list__item__info}>

@@ -5,6 +5,7 @@ import { cn } from '@maxigarcia/js-utils';
 import { useState } from 'react';
 import { Button } from '@/components/button';
 import { canBeAddedToCart } from '@/domain/products';
+import { useNavigation } from '@/hooks/use-navigation';
 import { useProductCart } from '@/stores/product-cart';
 import { ProductImage } from '../product-image';
 import { ColorSelector } from './color-selector';
@@ -19,6 +20,7 @@ export function ProductForm({ product }: ProductFormProps) {
   const [selectedColor, setSelectedColor] = useState(product.colorOptions[0]);
   const [selectedStorage, setSelectedStorage] = useState(null);
   const { addProduct } = useProductCart();
+  const { navigateTo } = useNavigation();
 
   const isFormValid = canBeAddedToCart({ storage: selectedStorage, color: selectedColor });
 
@@ -33,6 +35,8 @@ export function ProductForm({ product }: ProductFormProps) {
       colorOption: selectedColor,
       storageOption: selectedStorage,
     });
+
+    navigateTo('/cart');
   };
 
   return (
