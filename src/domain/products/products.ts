@@ -1,10 +1,9 @@
-import type { ProductDetail } from './products.types';
+import type { ProductCart } from './products.types';
 
-interface CanBeAddedToCartProps {
-  storage: ProductDetail['storageOptions'][number];
-  color: ProductDetail['colorOptions'][number];
+export function canBeAddedToCart({ storageOption, colorOption }: Pick<ProductCart, 'storageOption' | 'colorOption'>) {
+  return storageOption != null && colorOption != null;
 }
 
-export function canBeAddedToCart({ storage, color }: CanBeAddedToCartProps) {
-  return storage != null && color != null;
+export function createProductKey(product: Pick<ProductCart, 'id' | 'storageOption' | 'colorOption'>) {
+  return `${product.id}-${product.storageOption.capacity}-${product.colorOption.name}`;
 }
