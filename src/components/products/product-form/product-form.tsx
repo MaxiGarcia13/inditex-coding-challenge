@@ -1,7 +1,7 @@
 'use client';
 
 import type { ProductDetail } from '@/domain/products';
-import { useState, ViewTransition } from 'react';
+import { useState } from 'react';
 import { Button } from '@/components/button';
 import { ProductImage } from '../product-image';
 import { ColorSelector } from './color-selector';
@@ -67,7 +67,7 @@ export function ProductForm({ product }: ProductFormProps) {
             />
           </div>
 
-          <Button variant="primary">Add to cart</Button>
+          <Button variant="primary" disabled>Add to cart</Button>
         </div>
       </div>
     </div>
