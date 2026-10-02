@@ -1,4 +1,4 @@
-# Inditex coding challenge solution by Maximiliano Garcia Mortigliengo
+# Inditex coding challenge by Maxi Garcia Mortigliengo
 
 ## Requirements
 
