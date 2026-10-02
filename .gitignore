@@ -4,6 +4,7 @@ dist
 
 .env
 .env.*
+next-env.d.ts
 
 .DS_Store
 tsconfig.tsbuildinfo
