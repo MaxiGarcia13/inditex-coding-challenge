@@ -11,7 +11,7 @@ export function CartList({ products }: CartListProps) {
   const removeProduct = useProductCart((state) => state.removeProduct);
 
   return (
-    <ul className={styles.cart__list}>
+    <ul className={styles.list}>
       {products.map((product) => {
         return (
           <ProductCard
