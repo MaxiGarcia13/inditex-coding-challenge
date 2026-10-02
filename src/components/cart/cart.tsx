@@ -9,6 +9,8 @@ import styles from './cart.module.css';
 
 export function Cart() {
   const products = useProductCart((state) => state.products);
+  const total = products.reduce((acc, product) => acc + product.storageOption.price, 0);
+
   const { goBack } = useNavigation();
 
   return (
@@ -27,6 +29,11 @@ export function Cart() {
         >
           Continue shopping
         </Button>
+
+        <span className={styles.cart__footer__total}>
+          <span>Total</span>
+          <span>{`${total} EUR`}</span>
+        </span>
 
         <Button
           variant="primary"

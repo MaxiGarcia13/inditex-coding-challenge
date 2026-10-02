@@ -14,16 +14,55 @@
 }
 
 .cart__footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    'total total'
+    'back pay';
+  gap: var(--space-md);
+  align-items: stretch;
+}
+
+.cart__footer__total {
+  grid-area: total;
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
-  gap: var(--space-xl);
+  text-transform: uppercase;
+  font-size: var(--text-size-sm);
+  font-weight: var(--font-weight-regular);
 }
 
 .cart__footer__button__back {
-  max-width: 200px;
+  grid-area: back;
+  width: 100%;
 }
 
 .cart__footer__button__pay {
-  max-width: 260px;
+  grid-area: pay;
+  width: 100%;
+}
+
+@media (min-width: 769px) {
+  .cart__footer {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 'back back total pay';
+    gap: var(--space-xl);
+    align-items: center;
+    position: relative;
+  }
+
+  .cart__footer__total {
+    gap: var(--space-md);
+  }
+
+  .cart__footer__button__back {
+    justify-self: start;
+    width: 100%;
+    max-width: 200px;
+  }
+
+  .cart__footer__button__pay {
+    justify-self: end;
+    width: 260px;
+  }
 }

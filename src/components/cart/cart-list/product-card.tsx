@@ -33,7 +33,7 @@ export function ProductCard({ product, onRemove, className, ...props }: ProductC
           </header>
 
           <p className={styles.cart__list__item__info__text}>
-            {`$${product.storageOption.price} EUR`}
+            {`${product.storageOption.price} EUR`}
           </p>
         </div>
 
