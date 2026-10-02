@@ -5,6 +5,7 @@ import { cn } from '@maxigarcia/js-utils';
 import { useState } from 'react';
 import { Button } from '@/components/button';
 import { canBeAddedToCart } from '@/domain/products';
+import { useProductCart } from '@/stores/product-cart';
 import { ProductImage } from '../product-image';
 import { ColorSelector } from './color-selector';
 import styles from './product-form.module.css';
@@ -17,8 +18,22 @@ interface ProductFormProps {
 export function ProductForm({ product }: ProductFormProps) {
   const [selectedColor, setSelectedColor] = useState(product.colorOptions[0]);
   const [selectedStorage, setSelectedStorage] = useState(null);
+  const { addProduct } = useProductCart();
 
   const isFormValid = canBeAddedToCart({ storage: selectedStorage, color: selectedColor });
+
+  const handleAddToCart = () => {
+    if (!isFormValid)
+      return;
+
+    addProduct({
+      id: product.id,
+      brand: product.brand,
+      name: product.name,
+      colorOption: selectedColor,
+      storageOption: selectedStorage,
+    });
+  };
 
   return (
     <div className={cn('page-section', styles.form)}>
@@ -72,7 +87,13 @@ export function ProductForm({ product }: ProductFormProps) {
             />
           </div>
 
-          <Button variant="primary" disabled={!isFormValid}>Add to cart</Button>
+          <Button
+            variant="primary"
+            disabled={!isFormValid}
+            onClick={handleAddToCart}
+          >
+            Add to cart
+          </Button>
         </div>
       </div>
     </div>
