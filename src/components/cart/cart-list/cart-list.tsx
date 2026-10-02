@@ -3,9 +3,10 @@
 import { cn } from '@maxigarcia/js-utils';
 import { useProductCart } from '@/stores/product-cart';
 import styles from './cart-list.module.css';
+import { ProductCard } from './product-card';
 
 export function CartList() {
-  const { products } = useProductCart();
+  const { products, removeProduct } = useProductCart();
 
   return (
     <section className={cn('page-section', styles.cart)}>
@@ -13,7 +14,9 @@ export function CartList() {
 
       <ul className={styles.cart__list}>
         {products.map((product) => (
-          <li key={product.id}>{product.name}</li>
+          <li key={product.id}>
+            <ProductCard product={product} onRemove={() => removeProduct(product)} />
+          </li>
         ))}
       </ul>
     </section>

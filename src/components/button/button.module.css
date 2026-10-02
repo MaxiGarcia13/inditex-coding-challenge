@@ -28,3 +28,10 @@
   background-color: #f3f2f2;
   color: #c2bfbc;
 }
+
+.button--ghost {
+  text-transform: none;
+  width: auto;
+  padding: 0;
+  width: auto;
+}
