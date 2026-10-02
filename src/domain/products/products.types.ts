@@ -22,18 +22,18 @@ export interface ProductDetail extends ProductBase {
     os: string;
     screenRefreshRate: string;
   };
-  colorOptions: [
-    {
-      name: string;
-      hexCode: string;
-      imageUrl: string;
-    },
-  ];
-  storageOptions: [
-    {
-      capacity: string;
-      price: number;
-    },
-  ];
+  colorOptions: Array<ProductColorOption>;
+  storageOptions: Array<ProductStorageOption>;
   similarProducts: Array<ProductSummary>;
+}
+
+export interface ProductColorOption {
+  name: string;
+  hexCode: string;
+  imageUrl: string;
+}
+
+export interface ProductStorageOption {
+  capacity: string;
+  price: number;
 }
