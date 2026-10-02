@@ -1,9 +1,9 @@
-import type { Product } from '@/domain/products';
+import type { ProductSummary } from '@/domain/products';
 import { useNavigation } from '@/hooks/use-navigation';
 import styles from './product-card.module.css';
 
 interface ProductCardProps extends React.HTMLAttributes<HTMLLIElement> {
-  product: Product;
+  product: ProductSummary;
 }
 
 export function ProductCard({ product, ...props }: ProductCardProps) {
