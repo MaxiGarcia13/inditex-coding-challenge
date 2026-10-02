@@ -1,12 +1,12 @@
-import type { ProductsRequest, ProductsResponse } from '@/domain/products';
+import type { ProductsRequest, ProductSummariesResponse } from '@/domain/products';
 import { mapHttpError } from '@/adapters/http-error';
 import { mapProductsResponse } from '@/adapters/products';
 import { buildUrl } from '@/utils/url';
 import { PRODUCTS_API_ENDPOINT } from './consts';
 
-export async function getProducts(
+export async function getProductSummaries(
   params: ProductsRequest = {},
-): Promise<ProductsResponse> {
+): Promise<ProductSummariesResponse> {
   try {
     const url = buildUrl(PRODUCTS_API_ENDPOINT, { ...params });
 

@@ -1,7 +1,7 @@
-import type { ProductsResponse } from '@/domain/products';
+import type { ProductSummariesResponse } from '@/domain/products';
 import { useQuery } from '@tanstack/react-query';
 import { useDeferredValue } from 'react';
-import { getProducts } from '@/services/products';
+import { getProductSummaries } from '@/services/products';
 import { useNavigation } from './use-navigation';
 
 export function useProducts() {
@@ -13,9 +13,9 @@ export function useProducts() {
     data: results = { data: [], total: 0 },
     isLoading,
     error,
-  } = useQuery<ProductsResponse>({
+  } = useQuery<ProductSummariesResponse>({
     queryKey: ['products', search],
-    queryFn: () => getProducts({
+    queryFn: () => getProductSummaries({
       limit: 20,
       offset: 0,
       search,
