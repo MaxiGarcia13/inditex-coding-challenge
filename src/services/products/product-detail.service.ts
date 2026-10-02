@@ -1,5 +1,4 @@
 import { mapHttpError } from '@/adapters/http-error';
-import { mapProductResponse } from '@/adapters/products';
 import { PRODUCTS_API_ENDPOINT } from './consts';
 
 interface GetProductOptions {
@@ -14,9 +13,8 @@ export async function getProductDetail(
     const url = getUrl(options);
     const response = await fetch(`${url}/${id}`);
 
-    return mapProductResponse(await response.json());
+    return await response.json();
   } catch (error) {
-    console.error(error);
     throw mapHttpError(error);
   }
 }
