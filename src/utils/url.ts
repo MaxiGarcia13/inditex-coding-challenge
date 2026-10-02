@@ -1,9 +1,6 @@
 type Params = Record<string, string | number | boolean | undefined | null>;
 
-export function buildUrl(
-  baseUrl: string,
-  params: Params = {},
-) {
+export function buildUrl(baseUrl: string, params: Params = {}) {
   const paramsString = buildParams(params);
 
   if (paramsString) {
