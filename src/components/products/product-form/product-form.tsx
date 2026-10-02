@@ -3,6 +3,7 @@
 import type { ProductDetail } from '@/domain/products';
 import { useState } from 'react';
 import { Button } from '@/components/button';
+import { canBeAddedToCart } from '@/domain/products/products';
 import { ProductImage } from '../product-image';
 import { ColorSelector } from './color-selector';
 import styles from './product-form.module.css';
@@ -15,6 +16,8 @@ interface ProductFormProps {
 export function ProductForm({ product }: ProductFormProps) {
   const [selectedColor, setSelectedColor] = useState(product.colorOptions[0]);
   const [selectedStorage, setSelectedStorage] = useState(null);
+
+  const isFormValid = canBeAddedToCart({ storage: selectedStorage, color: selectedColor });
 
   return (
     <div className={styles.form}>
@@ -67,7 +70,7 @@ export function ProductForm({ product }: ProductFormProps) {
             />
           </div>
 
-          <Button variant="primary" disabled>Add to cart</Button>
+          <Button variant="primary" disabled={!isFormValid}>Add to cart</Button>
         </div>
       </div>
     </div>

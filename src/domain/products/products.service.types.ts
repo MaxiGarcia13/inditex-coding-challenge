@@ -1,5 +1,5 @@
 import type { HttpResponse } from '../http';
-import type { ProductSummary } from './products';
+import type { ProductSummary } from './products.types';
 
 export type ProductSummariesResponse = HttpResponse<Array<ProductSummary>> & { total: number };
 
