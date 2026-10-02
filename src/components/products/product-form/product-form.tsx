@@ -39,10 +39,11 @@ export function ProductForm({ product }: ProductFormProps) {
             <h1 className={styles.form__content__header__title}>{product.name}</h1>
 
             <p className={styles.form__content__header__price}>
-              From
-              {' '}
-              {product.basePrice}
-              {' EUR'}
+              {
+                selectedStorage
+                  ? `${selectedStorage.price} EUR`
+                  : `From ${product.basePrice} EUR`
+              }
             </p>
           </header>
 

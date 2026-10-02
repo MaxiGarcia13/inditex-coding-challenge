@@ -8,6 +8,7 @@ const product = {
   id: '1',
   brand: 'Brand 1',
   name: 'Product 1',
+  basePrice: 100,
   colorOptions: [
     { name: 'Black', hexCode: '#000000', imageUrl: 'https://via.placeholder.com/150' },
   ],
@@ -28,5 +29,18 @@ describe('productForm', () => {
     await user.click(storageOption);
 
     expect(button).toBeEnabled();
+  });
+
+  it('should show the selected storage price instead of the base price', async () => {
+    const user = userEvent.setup();
+
+    render(<ProductForm product={product} />);
+
+    expect(screen.getByText('From 100 EUR')).toBeInTheDocument();
+
+    await user.click(screen.getByRole('radio', { name: '256GB' }));
+
+    expect(screen.getByText('200 EUR')).toBeInTheDocument();
+    expect(screen.queryByText('From 100 EUR')).not.toBeInTheDocument();
   });
 });
