@@ -1,29 +1,11 @@
 .selector {
   display: flex;
-  width: 100%;
 }
 
 .option {
-  flex: 1;
-  padding: var(--space-lg);
-  font-size: var(--text-size-sm);
-  font-weight: var(--font-weight-light);
-  text-align: center;
   cursor: pointer;
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  max-width: 100px;
-  text-transform: uppercase;
-
-  border-width: 1px;
-  border-style: solid;
-  border-color: var(--border-color-light);
-
-  margin-right: -1px;
 }
 
-.option--selected,
-.option:hover {
-  border-color: var(--border-color);
+.option--selected {
   z-index: 1;
 }

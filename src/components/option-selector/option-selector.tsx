@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import { cn } from '@maxigarcia/js-utils';
 import styles from './option-selector.module.css';
 
@@ -6,22 +7,33 @@ export interface OptionSelectorOption<T extends string = string> {
   label: string;
 }
 
-export interface OptionSelectorProps<T extends string = string>
-  extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange' | 'role'> {
-  options: OptionSelectorOption<T>[];
+export interface OptionSelectorProps<
+  T extends string = string,
+  O extends OptionSelectorOption<T> = OptionSelectorOption<T>,
+> extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange' | 'role'> {
+  options: O[];
   value?: T;
   onChange?: (value: T) => void;
   name?: string;
+  optionClassName?: string;
+  selectedOptionClassName?: string;
+  renderOption?: (option: O, isSelected: boolean) => ReactNode;
 }
 
-export function OptionSelector<T extends string = string>({
+export function OptionSelector<
+  T extends string = string,
+  O extends OptionSelectorOption<T> = OptionSelectorOption<T>,
+>({
   options,
   value,
   onChange,
   className,
   name,
+  optionClassName,
+  selectedOptionClassName,
+  renderOption,
   ...props
-}: OptionSelectorProps<T>) {
+}: OptionSelectorProps<T, O>) {
   return (
     <div
       className={cn(styles.selector, className)}
@@ -38,10 +50,16 @@ export function OptionSelector<T extends string = string>({
             role="radio"
             name={name}
             aria-checked={isSelected}
-            className={cn(styles.option, isSelected && styles['option--selected'])}
+            aria-label={option.label}
+            className={cn(
+              styles.option,
+              optionClassName,
+              isSelected && styles['option--selected'],
+              isSelected && selectedOptionClassName,
+            )}
             onClick={() => onChange?.(option.value)}
           >
-            {option.label}
+            {renderOption ? renderOption(option, isSelected) : option.label}
           </button>
         );
       })}
