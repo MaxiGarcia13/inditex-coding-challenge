@@ -1,4 +1,4 @@
-import type { ProductBase, ProductDetail, ProductsRequest, ProductSummariesResponse } from '@/domain/products';
+import type { ProductBase, ProductDetail, ProductsRequest, ProductSummary } from '@/domain/products';
 import process from 'node:process';
 import { buildUrl } from '@/utils/url';
 
@@ -13,7 +13,7 @@ const PRODUCTS_OPTIONS = {
   },
 };
 
-export async function getProductsGateway(params: ProductsParams = {}): Promise<ProductSummariesResponse> {
+export async function getProductsGateway(params: ProductsParams = {}): Promise<Array<ProductSummary>> {
   const url = buildUrl(`${PRODUCTS_API_ENDPOINT}`, { ...params });
 
   return fetch(url, PRODUCTS_OPTIONS).then((response) => response.json());

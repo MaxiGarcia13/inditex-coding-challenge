@@ -11,6 +11,13 @@ export async function getProductSummaries(
 
     const response = await fetch(url);
 
+    if (!response.ok) {
+      throw mapHttpError({
+        status: response.status,
+        message: response.statusText,
+      });
+    }
+
     return response.json();
   } catch (error) {
     throw mapHttpError(error);
