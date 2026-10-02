@@ -37,7 +37,7 @@
 }
 
 .card__info__brand {
-  font-size: var(--text-size-sm);
+  font-size: var(--text-size-xs);
   color: var(--text-light-color);
 }
 

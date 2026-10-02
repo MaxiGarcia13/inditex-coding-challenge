@@ -8,6 +8,6 @@
 
 .results {
   text-transform: uppercase;
-  font-size: var(--text-size-sm);
+  font-size: var(--text-size-xs);
   color: var(--text-color);
 }
