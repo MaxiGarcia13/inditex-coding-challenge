@@ -3,7 +3,7 @@
 import type { ProductDetail } from '@/domain/products';
 import { useState } from 'react';
 import { Button } from '@/components/button';
-import { canBeAddedToCart } from '@/domain/products/products';
+import { canBeAddedToCart } from '@/domain/products';
 import { ProductImage } from '../product-image';
 import { ColorSelector } from './color-selector';
 import styles from './product-form.module.css';
