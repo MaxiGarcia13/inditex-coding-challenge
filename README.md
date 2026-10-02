@@ -4,6 +4,10 @@
 
 See [docs/requirements.md](./docs/requirements.md) for the full challenge requirements and design reference.
 
+## Technical decisions
+
+See [docs/decisions.md](./docs/decisions.md) for the main technical choices behind this solution.
+
 ## Stack
 
 - **Next.js** — App Router, React Server Components, and API routes
