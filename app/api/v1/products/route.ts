@@ -1,5 +1,7 @@
 import type { NextApiRequest } from 'next';
+import type { ProductSummary } from '@/domain/products';
 import { NextResponse } from 'next/server';
+import { mapProductSummariesResponse } from '@/adapters/products';
 import { getProductsGateway } from '@/services/products/products.gateway.service';
 import { uniqueBy } from '@/utils/array';
 import { isHttpError } from '@/utils/http';
@@ -16,16 +18,14 @@ export async function GET(
       offset: Number(searchParams.get('offset')),
     });
 
-    const data = await response.json();
-
-    const uniqueData = uniqueBy(data, 'id');
+    const uniqueData = uniqueBy(response.data, 'id');
 
     return NextResponse.json(
-      {
+      mapProductSummariesResponse({
         data: uniqueData,
         total: uniqueData.length,
-      },
-      { status: response.status },
+      }),
+      { status: 200 },
     );
   } catch (error) {
     if (isHttpError(error)) {
