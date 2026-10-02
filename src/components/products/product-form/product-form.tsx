@@ -22,7 +22,7 @@ export function ProductForm({ product }: ProductFormProps) {
   const { addProduct } = useProductCart();
   const { navigateTo } = useNavigation();
 
-  const isFormValid = canBeAddedToCart({ storage: selectedStorage, color: selectedColor });
+  const isFormValid = canBeAddedToCart({ storageOption: selectedStorage, colorOption: selectedColor });
 
   const handleAddToCart = () => {
     if (!isFormValid)
