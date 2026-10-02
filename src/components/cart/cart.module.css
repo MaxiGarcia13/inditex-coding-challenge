@@ -64,6 +64,7 @@
 
   .cart__footer__button__pay {
     justify-self: end;
-    width: 260px;
+    flex-shrink: 0;
+    min-width: 260px;
   }
 }
