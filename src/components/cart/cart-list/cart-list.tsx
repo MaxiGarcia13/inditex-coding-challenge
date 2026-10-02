@@ -15,7 +15,7 @@ export function CartList({ products }: CartListProps) {
       {products.map((product) => {
         return (
           <ProductCard
-            key={product.id}
+            key={product.key}
             product={product}
             onRemove={() => removeProduct(product)}
           />

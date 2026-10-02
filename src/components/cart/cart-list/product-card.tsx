@@ -33,6 +33,14 @@ export function ProductCard({ product, onRemove, className, ...props }: ProductC
           <p className={styles.cart__list__item__info__text}>
             {`${product.storageOption.price} EUR`}
           </p>
+
+          {
+            product.quantity > 1 && (
+              <p className={styles.cart__list__item__info__text}>
+                {`Quantity ${product.quantity}`}
+              </p>
+            )
+          }
         </div>
 
         <Button
@@ -42,6 +50,7 @@ export function ProductCard({ product, onRemove, className, ...props }: ProductC
         >
           Remove
         </Button>
+
       </div>
     </li>
   );

@@ -9,14 +9,15 @@ import styles from './cart.module.css';
 
 export function Cart() {
   const products = useProductCart((state) => state.products);
-  const total = products.reduce((acc, product) => acc + product.storageOption.price, 0);
+  const totalQuantity = useProductCart((state) => state.totalQuantity);
+  const totalPrice = useProductCart((state) => state.totalPrice);
 
   const { navigateTo } = useNavigation();
 
   return (
     <section className={cn('page-section', styles.cart)}>
       <div className={styles.cart__content}>
-        <h1 className={styles.cart__title}>{`Cart (${products.length})`}</h1>
+        <h1 className={styles.cart__title}>{`Cart (${totalQuantity})`}</h1>
 
         <CartList products={products} />
       </div>
@@ -35,7 +36,7 @@ export function Cart() {
             <>
               <span className={styles.cart__footer__total}>
                 <span>Total</span>
-                <span>{`${total} EUR`}</span>
+                <span>{`${totalPrice} EUR`}</span>
               </span>
 
               <Button
