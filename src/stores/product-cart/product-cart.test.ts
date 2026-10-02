@@ -44,6 +44,14 @@ describe('useProductCart', () => {
     expect(useProductCart.getState().products).toStrictEqual([]);
   });
 
+  it('should hydrate products from localStorage', () => {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify([productA]));
+
+    useProductCart.getState().hydrate();
+
+    expect(useProductCart.getState().products).toStrictEqual([productA]);
+  });
+
   it('should add a product to the cart', () => {
     useProductCart.getState().addProduct(productA);
 

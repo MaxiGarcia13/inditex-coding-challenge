@@ -1,5 +1,6 @@
 import { author } from '@package-json';
 import { AppHeader } from '@/components/app-header';
+import { HydrateProductCartStore } from '@/components/cart/hydrate-product-cart-store';
 import { QueryClientProvider } from '@/components/query-client-provider';
 import '@/styles/global.css';
 
@@ -15,6 +16,7 @@ export default function RootLayout({
         <meta name="author" content={author} />
       </head>
       <body>
+        <HydrateProductCartStore />
         <AppHeader />
 
         <main>
