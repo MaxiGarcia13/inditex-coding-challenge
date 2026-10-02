@@ -17,7 +17,7 @@
   flex-direction: column;
 }
 
-.specs__list__item {
+.specs__row {
   display: flex;
   flex-direction: row;
   padding: var(--space-md) 0;
@@ -27,17 +27,17 @@
   margin-top: -1px;
 }
 
-.specs__list__item__key {
+.specs__key {
   max-width: 300px;
   flex: 1;
   text-transform: uppercase;
 }
 
-.specs__list__item__value {
+.specs__value {
   flex: 1;
 }
 
-.specs__list__item__key,
-.specs__list__item__value {
+.specs__key,
+.specs__value {
   font-size: var(--text-size-xs);
 }

@@ -26,9 +26,9 @@ export function ProductSpecs({ product }: ProductSpecificationsProps) {
       <ul className={styles.specs__list}>
         {
           Object.entries(product.specs).map(([key, value]) => (
-            <li key={key} className={styles.specs__list__item}>
-              <span className={styles.specs__list__item__key}>{getKeyTranslation(key)}</span>
-              <span className={styles.specs__list__item__value}>{value}</span>
+            <li key={key} className={styles.specs__row}>
+              <span className={styles.specs__key}>{getKeyTranslation(key)}</span>
+              <span className={styles.specs__value}>{value}</span>
             </li>
           ))
         }
