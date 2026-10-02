@@ -3,9 +3,9 @@
 import { SearchInput } from '@/components/search-input';
 import { useNavigation } from '@/hooks/use-navigation';
 import { useProducts } from '@/hooks/use-products';
-import styles from './product-search.module.css';
+import styles from './product-search-box.module.css';
 
-export function ProductSearch() {
+export function ProductSearchBox() {
   const { setSearchParam, deleteSearchParam, getSearchParam } = useNavigation();
   const { total } = useProducts();
 
