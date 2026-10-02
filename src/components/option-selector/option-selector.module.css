@@ -4,8 +4,15 @@
 
 .option {
   cursor: pointer;
+
+  border-width: 1px;
+  border-style: solid;
+  border-color: var(--border-color-light);
+  margin-right: -1px;
 }
 
-.option--selected {
+.option--selected,
+.option:hover {
+  border-color: var(--border-color);
   z-index: 1;
 }

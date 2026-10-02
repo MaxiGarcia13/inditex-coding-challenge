@@ -16,7 +16,6 @@ export interface OptionSelectorProps<
   onChange?: (value: T) => void;
   name?: string;
   optionClassName?: string;
-  selectedOptionClassName?: string;
   renderOption?: (option: O, isSelected: boolean) => ReactNode;
 }
 
@@ -30,7 +29,6 @@ export function OptionSelector<
   className,
   name,
   optionClassName,
-  selectedOptionClassName,
   renderOption,
   ...props
 }: OptionSelectorProps<T, O>) {
@@ -55,7 +53,6 @@ export function OptionSelector<
               styles.option,
               optionClassName,
               isSelected && styles['option--selected'],
-              isSelected && selectedOptionClassName,
             )}
             onClick={() => onChange?.(option.value)}
           >
