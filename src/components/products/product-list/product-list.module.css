@@ -1,7 +1,14 @@
 .list {
+  gap: 0;
+}
+
+.list--vertical {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(344px, 1fr));
   flex-wrap: wrap;
-  gap: 0;
-  padding: 0 var(--page-padding-x);
+}
+
+.list--horizontal {
+  display: flex;
+  flex-direction: row;
 }
