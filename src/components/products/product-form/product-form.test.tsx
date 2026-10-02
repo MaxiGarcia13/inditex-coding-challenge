@@ -1,8 +1,14 @@
 import type { ProductDetail } from '@/domain/products';
 import { render, screen } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { ProductForm } from './product-form';
+
+vi.mock('@/hooks/use-navigation', () => ({
+  useNavigation: () => ({
+    navigateTo: vi.fn(),
+  }),
+}));
 
 const product = {
   id: '1',
