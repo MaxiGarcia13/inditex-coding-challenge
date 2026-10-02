@@ -3,7 +3,7 @@
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 40px;
+  gap: var(--space-xl);
   padding-bottom: var(--space-xl);
 }
 
@@ -26,7 +26,7 @@
   align-items: flex-start;
   gap: var(--space-sm);
   min-width: 380px;
-  gap: 40px;
+  gap: var(--space-xl);
 }
 
 .form__header {
