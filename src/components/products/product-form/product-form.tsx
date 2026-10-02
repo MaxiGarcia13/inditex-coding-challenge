@@ -1,7 +1,9 @@
 'use client';
 
 import type { ProductDetail } from '@/domain/products';
-import { useState } from 'react';
+import { useState, ViewTransition } from 'react';
+import { Button } from '@/components/button';
+import { ProductImage } from '../product-image';
 import { ColorSelector } from './color-selector';
 import styles from './product-form.module.css';
 import { StorageSelector } from './storage-selector';
@@ -17,13 +19,15 @@ export function ProductForm({ product }: ProductFormProps) {
   return (
     <div className={styles.form}>
       <div className={styles['form__image-Container']}>
-        <img
+        <ProductImage
+          productId={product.id}
           className={styles.form__image}
           src={selectedColor?.imageUrl}
           alt={selectedColor?.name}
           height={630}
           width={510}
         />
+
       </div>
 
       <div>
@@ -62,6 +66,8 @@ export function ProductForm({ product }: ProductFormProps) {
               onChange={setSelectedColor}
             />
           </div>
+
+          <Button variant="primary">Add to cart</Button>
         </div>
       </div>
     </div>

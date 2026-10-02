@@ -1,5 +1,6 @@
 import type { ProductSummary } from '@/domain/products';
 import { useNavigation } from '@/hooks/use-navigation';
+import { ProductImage } from '../product-image';
 import styles from './product-card.module.css';
 
 interface ProductCardProps extends React.HTMLAttributes<HTMLLIElement> {
@@ -19,7 +20,8 @@ export function ProductCard({ product, ...props }: ProductCardProps) {
   return (
     <li className={styles.card} {...props} onClick={handleClick}>
       <div className={styles.card__image_container}>
-        <img
+        <ProductImage
+          productId={product.id}
           className={styles.card__image}
           src={product.imageUrl}
           alt={product.name}
