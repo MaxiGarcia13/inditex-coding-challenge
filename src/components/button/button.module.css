@@ -1,0 +1,30 @@
+.button {
+  padding: 16px 8px;
+  width: 100%;
+
+  text-transform: uppercase;
+  font-size: var(--text-size-xs);
+  font-weight: var(--font-weight-light);
+}
+
+.button--primary {
+  background-color: var(--text-color);
+  color: var(--bg-color);
+  border: 1px solid transparent;
+}
+
+.button--secondary {
+  background-color: transparent;
+  color: var(--bg-color);
+  border: 1px solid var(--border-color);
+}
+
+.button:disabled {
+  cursor: not-allowed;
+  user-select: none;
+}
+
+.button--primary:disabled {
+  background-color: #f3f2f2;
+  color: #c2bfbc;
+}
