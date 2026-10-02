@@ -1,17 +1,17 @@
-.list {
+.similar {
   display: flex;
   flex-direction: column;
   gap: var(--space-xl);
   padding-top: var(--space-xl);
 }
 
-.list__title {
+.similar__title {
   font-size: var(--text-size-lg);
   font-weight: var(--font-weight-light);
   text-transform: uppercase;
 }
 
-.list__container {
+.similar__scroller {
   overflow-x: auto;
   overflow-y: hidden;
   padding: var(--space-md) 0;
