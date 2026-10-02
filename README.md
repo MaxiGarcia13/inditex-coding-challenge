@@ -46,3 +46,23 @@ npm run dev
 ```
 
 The app will be available at [http://localhost:3000](http://localhost:3000).
+
+## Scripts
+
+### Lint
+
+```bash
+npm run lint
+```
+
+To auto-fix lint issues when possible:
+
+```bash
+npm run lint:fix
+```
+
+### Tests
+
+```bash
+npm test
+```
