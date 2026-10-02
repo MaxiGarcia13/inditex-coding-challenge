@@ -31,7 +31,7 @@
   gap: var(--space-lg);
 }
 
-.card__image_container {
+.card__media {
   flex: 1;
   min-height: 0;
   width: 100%;
@@ -57,23 +57,23 @@
   flex-shrink: 0;
 }
 
-.card__info__brand {
+.card__brand {
   font-size: var(--text-size-xs);
   color: var(--text-light-color);
 }
 
-.card__info__details {
+.card__meta {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }
 
-.card__info__details__name {
+.card__name {
   font-size: var(--text-size-md);
 }
 
-.card__info__details__price {
+.card__price {
   font-size: var(--text-size-md);
 }
 

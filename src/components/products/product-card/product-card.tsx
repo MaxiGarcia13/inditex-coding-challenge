@@ -39,7 +39,7 @@ export function ProductCard({
     >
       <ViewTransition name={`product-${product.id}`}>
         <div className={styles.card__inner}>
-          <div className={styles.card__image_container}>
+          <div className={styles.card__media}>
             <ProductImage
               productId={product.id}
               className={styles.card__image}
@@ -51,11 +51,11 @@ export function ProductCard({
           </div>
 
           <footer className={styles.card__info}>
-            <span className={styles.card__info__brand}>{product.brand}</span>
+            <span className={styles.card__brand}>{product.brand}</span>
 
-            <div className={styles.card__info__details}>
-              <span className={styles.card__info__details__name}>{product.name}</span>
-              <span className={styles.card__info__details__price}>{`${product.basePrice} EUR`}</span>
+            <div className={styles.card__meta}>
+              <span className={styles.card__name}>{product.name}</span>
+              <span className={styles.card__price}>{`${product.basePrice} EUR`}</span>
             </div>
           </footer>
         </div>
