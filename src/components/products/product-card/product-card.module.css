@@ -2,12 +2,7 @@
   position: relative;
   list-style: none;
   border: 0.5px solid var(--border-color);
-  height: 344px;
-  min-width: 344px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
+  min-height: 0;
   padding: var(--space-md);
   cursor: pointer;
 
@@ -16,18 +11,42 @@
   overflow: hidden;
 }
 
+.card--grid {
+  width: 100%;
+  height: 100%;
+}
+
+.card--carousel {
+  flex: 0 0 344px;
+  width: 344px;
+  height: 344px;
+}
+
+.card__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  min-height: 0;
+  gap: var(--space-lg);
+}
+
 .card__image_container {
   flex: 1;
+  min-height: 0;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
 
 .card__image {
-  flex: 1;
   object-fit: contain;
-  width: 312px;
-  height: 230px;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
 }
 
 .card__info {
@@ -35,6 +54,7 @@
   flex-direction: column;
   gap: var(--space-sm);
   width: 100%;
+  flex-shrink: 0;
 }
 
 .card__info__brand {

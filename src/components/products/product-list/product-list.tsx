@@ -5,16 +5,17 @@ import styles from './product-list.module.css';
 
 interface ProductListProps extends React.HTMLAttributes<HTMLUListElement> {
   products: Array<ProductSummary>;
-  direction?: 'vertical' | 'horizontal';
+  variant?: 'grid' | 'carousel';
 }
 
-export function ProductList({ products, className, direction = 'vertical', ...props }: ProductListProps) {
+export function ProductList({ products, className, variant = 'grid', ...props }: ProductListProps) {
   return (
-    <ul className={cn(styles.list, styles[`list--${direction}`], className)} {...props}>
+    <ul className={cn(styles.list, styles[`list--${variant}`], className)} {...props}>
       {products.map((product) => (
         <ProductCard
           key={product.id}
           product={product}
+          variant={variant}
         />
       ))}
     </ul>

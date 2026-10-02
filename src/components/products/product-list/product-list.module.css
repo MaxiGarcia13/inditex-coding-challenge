@@ -2,13 +2,14 @@
   gap: 0;
 }
 
-.list--vertical {
+.list--grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(344px, 1fr));
-  flex-wrap: wrap;
+  grid-auto-rows: 344px;
 }
 
-.list--horizontal {
+.list--carousel {
   display: flex;
   flex-direction: row;
+  align-items: stretch;
 }

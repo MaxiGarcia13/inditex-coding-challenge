@@ -17,7 +17,7 @@ export function SimilarProducts({ product }: SimilarProductsProps) {
       <div className={styles.list__container}>
         <ProductList
           products={product.similarProducts}
-          direction="horizontal"
+          variant="carousel"
         />
       </div>
     </section>
