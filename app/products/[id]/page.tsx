@@ -1,17 +1,20 @@
+import type { Metadata } from 'next';
 import type { ProductBase } from '@/domain/products';
 import process from 'node:process';
 import { BackButton } from '@/components/back-button';
 import { ProductForm } from '@/components/products';
+import { APP_METADATA } from '@/constants/metadata';
 import { getProductDetail } from '@/services/products';
 import { isHttpError } from '@/utils/http';
 
 interface PageProps {
   params: Promise<Pick<ProductBase, 'id'>>;
 }
+
 export default async function Page({ params }: PageProps) {
   const { id } = await params;
 
-  const product = await getProductDetail(id, { baseUrl: process.env.API_URL! });
+  const product = await getProductDetail(id, { baseUrl: process.env.APP_URL! });
 
   if (isHttpError(product)) {
     return null;
@@ -23,4 +26,32 @@ export default async function Page({ params }: PageProps) {
       <ProductForm product={product} />
     </>
   );
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { id } = await params;
+  const product = await getProductDetail(id, { baseUrl: process.env.APP_URL! });
+
+  if (isHttpError(product)) {
+    return { title: 'Product not found' };
+  }
+
+  const image = product.colorOptions[0]?.imageUrl;
+  const title = `${product.name} - ${APP_METADATA.title}`;
+
+  return {
+    title,
+    description: product.description,
+    openGraph: {
+      title,
+      description: product.description,
+      images: image ? [image] : [],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description: product.description,
+      images: image ? [image] : [],
+    },
+  };
 }
