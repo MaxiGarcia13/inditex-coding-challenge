@@ -35,7 +35,7 @@ export function ProductCard({ product, ...props }: ProductCardProps) {
 
         <div className={styles.card__info__details}>
           <span className={styles.card__info__details__name}>{product.name}</span>
-          <span className={styles.card__info__details__price}>{product.basePrice}</span>
+          <span className={styles.card__info__details__price}>{`${product.basePrice} EUR`}</span>
         </div>
       </footer>
     </li>
