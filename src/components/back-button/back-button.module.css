@@ -1,6 +1,6 @@
 .back {
   width: 100%;
-  padding: var(--space-md) var(--page-padding-x);
+  padding: var(--space-12) var(--page-padding-x);
 }
 
 .back__button {

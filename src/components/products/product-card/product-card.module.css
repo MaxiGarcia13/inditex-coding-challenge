@@ -2,7 +2,7 @@
   position: relative;
   border: 0.5px solid var(--border-color);
   min-height: 0;
-  padding: var(--space-md);
+  padding: var(--space-12);
   cursor: pointer;
 
   margin-right: -1px;
@@ -28,7 +28,7 @@
   align-items: center;
   height: 100%;
   min-height: 0;
-  gap: var(--space-lg);
+  gap: var(--space-24);
 }
 
 .card__media {
@@ -52,7 +52,7 @@
 .card__info {
   display: flex;
   flex-direction: column;
-  gap: var(--space-sm);
+  gap: var(--space-6);
   width: 100%;
   flex-shrink: 0;
 }

@@ -2,8 +2,8 @@
   display: flex;
   flex-direction: column;
   padding: 0 var(--page-padding-x);
-  padding-top: var(--space-xl);
-  gap: var(--space-xl);
+  padding-top: var(--space-40);
+  gap: var(--space-40);
 }
 
 .specs__title {
@@ -20,7 +20,7 @@
 .specs__row {
   display: flex;
   flex-direction: row;
-  padding: var(--space-md) 0;
+  padding: var(--space-12) 0;
 
   border-bottom: 1px solid var(--border-color);
   border-top: 1px solid var(--border-color);

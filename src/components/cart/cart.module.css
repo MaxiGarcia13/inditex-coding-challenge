@@ -7,7 +7,7 @@
 }
 
 .cart__title {
-  padding: var(--space-xl) 0;
+  padding: var(--space-40) 0;
   font-size: var(--text-size-lg);
   font-weight: var(--font-weight-light);
   text-transform: uppercase;
@@ -19,7 +19,7 @@
   grid-template-areas:
     'total total'
     'back pay';
-  gap: var(--space-md);
+  gap: var(--space-12);
   align-items: stretch;
 }
 
@@ -47,13 +47,13 @@
   .cart__footer {
     grid-template-columns: 1fr 1fr;
     grid-template-areas: 'back back total pay';
-    gap: var(--space-xl);
+    gap: var(--space-40);
     align-items: center;
     position: relative;
   }
 
   .cart__total {
-    gap: var(--space-md);
+    gap: var(--space-12);
   }
 
   .cart__back {
