@@ -23,7 +23,7 @@
   align-items: stretch;
 }
 
-.cart__footer__total {
+.cart__total {
   grid-area: total;
   display: flex;
   justify-content: space-between;
@@ -32,12 +32,12 @@
   font-weight: var(--font-weight-regular);
 }
 
-.cart__footer__button__back {
+.cart__back {
   grid-area: back;
   width: 100%;
 }
 
-.cart__footer__button__pay {
+.cart__pay {
   grid-area: pay;
   width: 100%;
   flex-shrink: 0;
@@ -52,17 +52,17 @@
     position: relative;
   }
 
-  .cart__footer__total {
+  .cart__total {
     gap: var(--space-md);
   }
 
-  .cart__footer__button__back {
+  .cart__back {
     justify-self: start;
     width: 100%;
     max-width: 200px;
   }
 
-  .cart__footer__button__pay {
+  .cart__pay {
     justify-self: end;
     flex-shrink: 0;
     min-width: 260px;

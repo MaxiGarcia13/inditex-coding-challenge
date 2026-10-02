@@ -25,7 +25,7 @@ export function Cart() {
       <footer className={styles.cart__footer}>
         <Button
           variant="secondary"
-          className={styles.cart__footer__button__back}
+          className={styles.cart__back}
           onClick={() => navigateTo('/')}
         >
           Continue shopping
@@ -34,14 +34,14 @@ export function Cart() {
         {
           products.length > 0 && (
             <>
-              <span className={styles.cart__footer__total}>
+              <span className={styles.cart__total}>
                 <span>Total</span>
                 <span>{`${totalPrice} EUR`}</span>
               </span>
 
               <Button
                 variant="primary"
-                className={styles.cart__footer__button__pay}
+                className={styles.cart__pay}
 
               >
                 Pay
