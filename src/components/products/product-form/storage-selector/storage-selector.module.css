@@ -1,8 +1,8 @@
-.selector {
+.storage {
   width: 100%;
 }
 
-.option {
+.storage__option {
   flex: 1;
   padding: var(--space-lg);
   font-size: var(--text-size-sm);

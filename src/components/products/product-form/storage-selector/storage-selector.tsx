@@ -17,8 +17,8 @@ export function StorageSelector({ options, value, onChange, ...props }: StorageS
     <OptionSelector
       name="storage"
       aria-label="Storage capacity"
-      className={styles.selector}
-      optionClassName={styles.option}
+      className={styles.storage}
+      optionClassName={styles.storage__option}
       value={value?.capacity ?? ''}
       onChange={(value) => {
         onChange?.(options.find((option) => option.capacity === value));
