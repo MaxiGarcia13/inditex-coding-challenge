@@ -1,5 +1,4 @@
 import type { NextApiRequest } from 'next';
-import type { ProductSummary } from '@/domain/products';
 import { NextResponse } from 'next/server';
 import { mapProductSummariesResponse } from '@/adapters/products';
 import { getProductsGateway } from '@/services/products/products.gateway.service';
@@ -18,7 +17,7 @@ export async function GET(
       offset: Number(searchParams.get('offset')),
     });
 
-    const uniqueData = uniqueBy(response.data, 'id');
+    const uniqueData = uniqueBy(response, 'id');
 
     return NextResponse.json(
       mapProductSummariesResponse({
