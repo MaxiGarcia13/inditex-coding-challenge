@@ -8,6 +8,7 @@ export default defineConfig({
   workers: 1,
   reporter: 'html',
   use: {
+    baseURL: process.env.APP_URL!,
     trace: 'on-first-retry',
   },
   projects: [
@@ -18,7 +19,7 @@ export default defineConfig({
   ],
   webServer: {
     command: 'npm run dev',
-    url: process.env.APP_URL,
+    url: process.env.APP_URL!,
     reuseExistingServer: !process.env.CI,
   },
 });
