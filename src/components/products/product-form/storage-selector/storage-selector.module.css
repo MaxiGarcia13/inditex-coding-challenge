@@ -5,7 +5,7 @@
 .storage__option {
   flex: 1;
   padding: var(--space-24);
-  font-size: var(--text-size-sm);
+  font-size: var(--text-size-xs);
   font-weight: var(--font-weight-light);
   text-align: center;
   background-color: var(--bg-color);
