@@ -3,7 +3,7 @@
 ## Why Next.js?
 
 - **SEO**: the listing and detail pages benefit from server-rendered HTML and metadata, which helps search engines index product content.
-- **API gateway (BFF)**: Next.js Route Handlers let the app proxy the products API so the `x-api-key` stays on the server and is never exposed to the browser.
+- **API gateway (BFF)**: an internal `/api/v1/products` proxies the external products API so `PRODUCTS_API_KEY` and `PRODUCTS_API_URL` stay server-only, upstream quirks can be normalized (e.g. duplicate products), and the frontend keeps a stable contract even if the external API shape changes.
 
 ## Why TanStack Query?
 
@@ -21,11 +21,15 @@ The upstream products API sometimes returns duplicate items with the same `id`. 
 - Straightforward persistence to `localStorage`, matching the cart persistence requirement.
 - Clearer separation: server/product state stays in TanStack Query; client/cart state lives in Zustand.
 
-## Why an internal `/api/v1/products` instead of calling the external API from the client?
+## How is the BFF protected?
 
-- Keeps `PRODUCTS_API_KEY` and `PRODUCTS_API_URL` server-only via environment variables.
-- Lets the app normalize upstream quirks (e.g. duplicate products) and map responses before they reach the UI.
-- Gives a stable contract for the frontend (`/api/v1/products`) even if the external API shape changes.
+The BFF is publicly reachable, so protection is layered:
+
+- **Vercel Firewall — origin allowlist**: rejects cross-origin browser requests that are not from the app’s allowed origins.
+- **Vercel Firewall — rate limiting**: throttles abusive traffic by IP so scripts and scrapers cannot freely burn the upstream API quota.
+- **Short-lived session cookie**: `proxy.ts` sets an HttpOnly signed cookie on page loads and requires it on `/api/*`, so casual `curl` without a browser session gets `401`. Server-side renders pass a server-only header for the same check.
+
+CORS alone cannot stop `curl` or forged `Origin` headers; the session cookie and rate limiting cover that gap.
 
 Feel free to reach out if you have any questions about this challenge:
 
