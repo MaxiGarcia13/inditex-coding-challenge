@@ -42,8 +42,8 @@ Create a `.env` file in the project root with:
 
 ```
 APP_URL=http://localhost:3000
+PRODUCTS_API_URL=https://prueba-tecnica-api-tienda-moviles.onrender.com
 PRODUCTS_API_KEY=api-key
-PRODUCTS_API_URL=api-url
 ```
 
 Replace `api-key` and `api-url` with the products API credentials provided for the challenge.
