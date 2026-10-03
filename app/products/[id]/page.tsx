@@ -3,6 +3,7 @@ import type { ProductBase } from '@/domain/products';
 import process from 'node:process';
 import { cache } from 'react';
 import { BackButton } from '@/components/back-button';
+import { ErrorState } from '@/components/error-state';
 import { ProductForm, ProductSpecs, SimilarProducts } from '@/components/products';
 import { APP_METADATA } from '@/constants/metadata';
 import { getProductDetail } from '@/services/products';
@@ -22,7 +23,18 @@ export default async function Page({ params }: PageProps) {
   const product = await loadProduct(id);
 
   if (isHttpError(product)) {
-    return null;
+    return (
+      <>
+        <BackButton />
+        <ErrorState
+          title="Product not found"
+          description={
+            product.message
+            ?? 'The smartphone you are looking for does not exist or is no longer available.'
+          }
+        />
+      </>
+    );
   }
 
   return (
