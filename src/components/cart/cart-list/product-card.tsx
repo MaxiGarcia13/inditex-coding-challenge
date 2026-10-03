@@ -47,6 +47,7 @@ export function ProductCard({ product, onRemove, className, ...props }: ProductC
           variant="ghost"
           className={styles.item__remove}
           onClick={onRemove}
+          aria-label={`Remove ${product.name} from cart`}
         >
           Remove
         </Button>
