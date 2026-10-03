@@ -37,7 +37,7 @@ export function Cart() {
             <>
               <span className={styles.cart__total}>
                 <span>Total</span>
-                <span>{`${totalPrice} EUR`}</span>
+                <span data-test-id="cart-total">{`${totalPrice} EUR`}</span>
               </span>
 
               <Button

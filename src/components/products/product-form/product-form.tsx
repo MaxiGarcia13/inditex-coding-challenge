@@ -58,7 +58,10 @@ export function ProductForm({ product }: ProductFormProps) {
           <header className={styles.form__header}>
             <h1 className={styles.form__title}>{product.name}</h1>
 
-            <p className={styles.form__price}>
+            <p
+              className={styles.form__price}
+              data-test-id="product-price"
+            >
               {
                 selectedStorage
                   ? `${selectedStorage.price} EUR`

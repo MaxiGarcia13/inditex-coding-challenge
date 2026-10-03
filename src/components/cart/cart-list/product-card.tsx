@@ -12,7 +12,11 @@ interface ProductCardProps extends HtmlHTMLAttributes<HTMLLIElement> {
 
 export function ProductCard({ product, onRemove, className, ...props }: ProductCardProps) {
   return (
-    <li className={cn(styles.item, className)} {...props}>
+    <li
+      className={cn(styles.item, className)}
+      data-test-id="cart-item"
+      {...props}
+    >
       <div className={styles.item__media}>
         <ProductImage
           className={styles.item__image}
@@ -44,6 +48,7 @@ export function ProductCard({ product, onRemove, className, ...props }: ProductC
         </div>
 
         <Button
+          data-test-id="cart-item-remove"
           variant="ghost"
           className={styles.item__remove}
           onClick={onRemove}
