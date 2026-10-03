@@ -15,13 +15,8 @@ export async function GET(request: NextRequest) {
       offset: Number(searchParams.get('offset')),
     });
 
-    const uniqueData = uniqueBy(response, 'id');
-
     return NextResponse.json(
-      mapProductSummariesResponse({
-        data: uniqueData,
-        total: uniqueData.length,
-      }),
+      mapProductSummariesResponse(response),
       { status: 200 },
     );
   } catch (error) {
