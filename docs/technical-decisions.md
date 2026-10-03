@@ -9,6 +9,16 @@
 
 Both are read from the environment so the same codebase can point at different upstreams (local, CI, staging, production) without code changes. The key stays server-only and can be rotated or swapped per environment; the URL can target a mock, a shared test API, or the real products API depending on where the app runs.
 
+## How is the BFF protected?
+
+The BFF is publicly reachable, so protection is layered:
+
+- **Vercel Firewall — origin allowlist**: rejects cross-origin browser requests that are not from the app’s allowed origins.
+- **Vercel Firewall — rate limiting**: throttles abusive traffic by IP so scripts and scrapers cannot freely burn the upstream API quota.
+- **Short-lived session cookie**: `proxy.ts` sets an HttpOnly signed cookie on page loads and requires it on `/api/*`, so casual `curl` without a browser session gets `401`. Server-side renders pass a server-only header for the same check.
+
+CORS alone cannot stop `curl` or forged `Origin` headers; the session cookie and rate limiting cover that gap.
+
 ## Why TanStack Query?
 
 - Simpler data fetching for client-side needs (e.g. search).
@@ -28,16 +38,6 @@ The upstream products API sometimes returns duplicate items with the same `id`. 
 - Less boilerplate for shared cart state (no provider nesting or custom reducers).
 - Straightforward persistence to `localStorage`, matching the cart persistence requirement.
 - Clearer separation: server/product state stays in TanStack Query; client/cart state lives in Zustand.
-
-## How is the BFF protected?
-
-The BFF is publicly reachable, so protection is layered:
-
-- **Vercel Firewall — origin allowlist**: rejects cross-origin browser requests that are not from the app’s allowed origins.
-- **Vercel Firewall — rate limiting**: throttles abusive traffic by IP so scripts and scrapers cannot freely burn the upstream API quota.
-- **Short-lived session cookie**: `proxy.ts` sets an HttpOnly signed cookie on page loads and requires it on `/api/*`, so casual `curl` without a browser session gets `401`. Server-side renders pass a server-only header for the same check.
-
-CORS alone cannot stop `curl` or forged `Origin` headers; the session cookie and rate limiting cover that gap.
 
 Feel free to reach out if you have any questions about this challenge:
 
