@@ -27,6 +27,7 @@ export function Cart() {
           variant="secondary"
           className={styles.cart__back}
           onClick={() => navigateTo('/')}
+          data-test-id="continue-shopping"
         >
           Continue shopping
         </Button>
