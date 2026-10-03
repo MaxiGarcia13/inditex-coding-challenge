@@ -61,6 +61,20 @@ The app will be available at [http://localhost:3000](http://localhost:3000).
 
 ## Scripts
 
+### Production
+
+Build the app for production:
+
+```bash
+npm run build
+```
+
+Then start the production server:
+
+```bash
+npm start
+```
+
 ### Lint
 
 ```bash
