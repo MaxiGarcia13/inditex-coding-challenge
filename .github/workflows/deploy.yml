@@ -1,0 +1,21 @@
+name: Deploy to Vercel
+
+on:
+  push:
+    branches:
+      - main
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
+jobs:
+  ci:
+    if: github.event_name != 'push' || !startsWith(github.event.head_commit.message, 'chore(release):')
+    uses: ./.github/workflows/ci.yml
+
+  deploy:
+    needs: ci
+    uses: MaxiGarcia13/gh-actions/.github/workflows/deploy-to-vercel.yml@main
+    secrets: inherit
+    with:
+      deployment_environment: Production
+      deployment_url: https://inditex-coding-challenge.vercel.app
