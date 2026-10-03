@@ -1,5 +1,4 @@
 import type { NextRequest } from 'next/server';
-import { uniqueBy } from '@maxigarcia/js-utils';
 import { NextResponse } from 'next/server';
 import { mapProductSummariesResponse } from '@/adapters/products';
 import { getProductsGateway } from '@/services/products/products.gateway.service';
