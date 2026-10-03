@@ -14,6 +14,10 @@ Both are read from the environment so the same codebase can point at different u
 - Simpler data fetching for client-side needs (e.g. search).
 - Built-in caching, request deduplication, and loading/error states without custom boilerplate.
 
+## Why debounce the search input?
+
+Without debounce, every keystroke would trigger a search request. Waiting ~500ms after the user stops typing cuts down unnecessary calls to the products endpoint while typing, and keeps the UI responsive.
+
 ## Why deduplicate products in the list API route?
 
 The upstream products API sometimes returns duplicate items with the same `id`. Showing the same phone twice in the grid does not make sense, so the route normalizes the response with `uniqueBy(..., 'id')` before mapping it to the client shape. The reported `total` is based on the deduplicated list so the result count stays consistent.
