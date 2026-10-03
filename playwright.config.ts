@@ -15,7 +15,6 @@ export default defineConfig({
   use: {
     baseURL: process.env.APP_URL!,
     testIdAttribute: 'data-test-id',
-    trace: 'on-first-retry',
   },
   projects: [
     {
