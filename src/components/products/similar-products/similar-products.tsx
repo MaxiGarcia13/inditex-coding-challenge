@@ -11,7 +11,10 @@ interface SimilarProductsProps {
 
 export function SimilarProducts({ product }: SimilarProductsProps) {
   return (
-    <section className={cn('page-section', styles.similar)}>
+    <section
+      className={cn('page-section', styles.similar)}
+      data-test-id="similar-products"
+    >
       <h2 className={styles.similar__title}>Similar Products</h2>
 
       <div className={styles.similar__scroller}>
