@@ -19,6 +19,8 @@ The BFF is publicly reachable, so protection is layered:
 
 CORS alone cannot stop `curl` or forged `Origin` headers; the session cookie and rate limiting cover that gap.
 
+The session cookie is intentionally simple: a one-hour signed TTL with no refresh. A natural follow-up would be sliding expiration (renew on activity) or a short-lived access token paired with a longer-lived refresh token.
+
 ## Why TanStack Query?
 
 - Simpler data fetching for client-side needs (e.g. search).
