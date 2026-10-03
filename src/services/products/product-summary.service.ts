@@ -1,16 +1,20 @@
 import type { ProductsRequest, ProductSummariesResponse } from '@/domain/products';
 import { addParamsToUrl } from '@maxigarcia/js-utils';
 import { mapHttpError } from '@/adapters/http-error';
+import { getProductsUrl } from './products-url.utils';
 
-import { PRODUCTS_API_ENDPOINT } from './consts';
+interface GetProductSummariesOptions extends RequestInit {
+  baseUrl?: string;
+}
 
 export async function getProductSummaries(
   params: ProductsRequest = {},
+  { baseUrl, ...fetchOptions }: GetProductSummariesOptions = {},
 ): Promise<ProductSummariesResponse> {
   try {
-    const url = addParamsToUrl(PRODUCTS_API_ENDPOINT, { ...params });
+    const url = addParamsToUrl(getProductsUrl(baseUrl), { ...params });
 
-    const response = await fetch(url);
+    const response = await fetch(url, fetchOptions);
 
     if (!response.ok) {
       throw mapHttpError({

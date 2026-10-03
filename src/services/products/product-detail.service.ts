@@ -1,18 +1,18 @@
 import type { ProductDetail } from '@/domain/products';
 import { mapHttpError } from '@/adapters/http-error';
-import { PRODUCTS_API_ENDPOINT } from './consts';
+import { getProductsUrl } from './products-url.utils';
 
-interface GetProductOptions {
+interface GetProductOptions extends RequestInit {
   baseUrl?: string;
 }
 
 export async function getProductDetail(
   id: string,
-  options: GetProductOptions = {},
+  { baseUrl, ...fetchOptions }: GetProductOptions = {},
 ): Promise<ProductDetail> {
   try {
-    const url = getUrl(options);
-    const response = await fetch(`${url}/${id}`);
+    const url = getProductsUrl(baseUrl);
+    const response = await fetch(`${url}/${id}`, fetchOptions);
 
     if (!response.ok) {
       throw mapHttpError({
@@ -25,12 +25,4 @@ export async function getProductDetail(
   } catch (error) {
     throw mapHttpError(error);
   }
-}
-
-function getUrl(options?: GetProductOptions) {
-  if (!options?.baseUrl) {
-    return PRODUCTS_API_ENDPOINT;
-  }
-
-  return `${options.baseUrl}/${PRODUCTS_API_ENDPOINT}`;
 }

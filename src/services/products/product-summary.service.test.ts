@@ -41,7 +41,7 @@ describe('getProductSummaries', () => {
 
     const products = await getProductSummaries();
 
-    expect(fetchSpy).toHaveBeenCalledWith(PRODUCTS_API_ENDPOINT);
+    expect(fetchSpy).toHaveBeenCalledWith(PRODUCTS_API_ENDPOINT, {});
     expect(products).toStrictEqual(successResponse);
   });
 
@@ -52,6 +52,7 @@ describe('getProductSummaries', () => {
 
     expect(fetchSpy).toHaveBeenCalledWith(
       `${PRODUCTS_API_ENDPOINT}?search=iphone&limit=10&offset=20`,
+      {},
     );
   });
 

@@ -52,7 +52,10 @@ describe('getProductDetail', () => {
 
     const product = await getProductDetail(productId);
 
-    expect(fetchSpy).toHaveBeenCalledWith(`${PRODUCTS_API_ENDPOINT}/${productId}`);
+    expect(fetchSpy).toHaveBeenCalledWith(
+      `${PRODUCTS_API_ENDPOINT}/${productId}`,
+      {},
+    );
     expect(product).toStrictEqual(successResponse);
   });
 
@@ -63,7 +66,20 @@ describe('getProductDetail', () => {
     await getProductDetail(productId, { baseUrl });
 
     expect(fetchSpy).toHaveBeenCalledWith(
-      `${baseUrl}/${PRODUCTS_API_ENDPOINT}/${productId}`,
+      `${baseUrl}${PRODUCTS_API_ENDPOINT}/${productId}`,
+      {},
+    );
+  });
+
+  it('should forward fetch options', async () => {
+    const fetchSpy = mockFetchResponse({ jsonData: successResponse });
+    const headers = { 'x-internal-session': 'test-secret' };
+
+    await getProductDetail(productId, { headers });
+
+    expect(fetchSpy).toHaveBeenCalledWith(
+      `${PRODUCTS_API_ENDPOINT}/${productId}`,
+      { headers },
     );
   });
 
