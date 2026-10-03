@@ -29,6 +29,7 @@ export function StorageSelector({ options, value, onChange, ...props }: StorageS
           label: option.capacity,
         }))
       }
+      data-test-id="storage-selector"
       {...props}
     />
   );

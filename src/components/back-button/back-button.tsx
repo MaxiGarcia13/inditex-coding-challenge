@@ -1,5 +1,6 @@
 'use client';
 
+import { cn } from '@maxigarcia/js-utils';
 import { useNavigation } from '@/hooks/use-navigation';
 import { ChevronLeftIcon } from '../icons/chevron-left';
 import styles from './back-button.module.css';
@@ -13,7 +14,12 @@ export function BackButton({ label = 'Back', ...props }: BackButtonProps) {
 
   return (
     <div className={styles.back}>
-      <button onClick={goBack} {...props} className={styles.back__button}>
+      <button
+        onClick={goBack}
+        className={cn(props.className, styles.back__button)}
+        data-test-id="back-button"
+        {...props}
+      >
         <ChevronLeftIcon />
         {label}
       </button>

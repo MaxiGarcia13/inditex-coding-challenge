@@ -95,6 +95,7 @@ export function ProductForm({ product }: ProductFormProps) {
             variant="primary"
             disabled={!isFormValid}
             onClick={handleAddToCart}
+            data-test-id="add-to-cart"
           >
             Add to cart
           </Button>

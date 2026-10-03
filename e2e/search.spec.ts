@@ -10,8 +10,8 @@ test('filters phones by name or brand via API search', async ({ page }) => {
       && response.ok(),
   );
 
-  await page.getByLabel('Search for a smartphone').fill('Apple');
+  await page.getByTestId('search-input').fill('Apple');
   await searchResponse;
 
-  await expect(page.getByRole('listitem').first()).toContainText(/Apple/i);
+  await expect(page.getByTestId('product-card').first()).toContainText(/Apple/i);
 });

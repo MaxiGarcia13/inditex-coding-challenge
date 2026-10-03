@@ -10,7 +10,7 @@ test('clicking a phone redirects to its detail view', async ({ page }) => {
 
   await searchResponse;
 
-  await page.getByRole('listitem').first().click();
+  await page.getByTestId('product-card').first().click();
 
   await expect(page).toHaveURL(/\/products\/.+/);
 });

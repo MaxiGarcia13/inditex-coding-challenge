@@ -34,8 +34,9 @@ export function ProductCard({
           className,
         )
       }
-      {...props}
+      data-test-id="product-card"
       onClick={handleClick}
+      {...props}
     >
       <ViewTransition name={`product-${product.id}`}>
         <div className={styles.card__inner}>

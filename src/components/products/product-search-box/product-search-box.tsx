@@ -26,6 +26,7 @@ export function ProductSearchBox() {
         aria-label="Search for a smartphone"
         onSearch={handleSearch}
         initialValue={getSearchParam('q') ?? ''}
+        data-test-id="search-input"
       />
       <span className={styles.search__results} aria-label={`${total} results`}>
         {total}

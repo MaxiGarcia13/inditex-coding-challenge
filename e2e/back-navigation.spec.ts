@@ -10,14 +10,14 @@ test('back button returns to the list with the previous search', async ({ page }
       && response.ok(),
   );
 
-  await page.getByLabel('Search for a smartphone').fill('Apple');
+  await page.getByTestId('search-input').fill('Apple');
   await searchResponse;
 
-  await page.getByRole('listitem').first().click();
+  await page.getByTestId('product-card').first().click();
   await expect(page).toHaveURL(/\/products\/.+/);
 
-  await page.getByRole('button', { name: 'Back' }).click();
+  await page.getByTestId('back-button').click();
 
   await expect(page).toHaveURL(/q=Apple/);
-  await expect(page.getByLabel('Search for a smartphone')).toHaveValue('Apple');
+  await expect(page.getByTestId('search-input')).toHaveValue('Apple');
 });
