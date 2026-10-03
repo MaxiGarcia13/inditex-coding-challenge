@@ -70,3 +70,8 @@ npm run lint:fix
 ```bash
 npm test
 ```
+
+Feel free to explore my work or reach out if you have any questions about this challenge:
+
+- **Portfolio / CV:** [maxi-garcia-mortigliengo-cv.vercel.app](https://maxi-garcia-mortigliengo-cv.vercel.app/)
+- **LinkedIn:** [linkedin.com/in/maximilianogarcia13](https://www.linkedin.com/in/maximilianogarcia13/)
