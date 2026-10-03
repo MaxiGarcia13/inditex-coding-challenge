@@ -27,9 +27,7 @@ The upstream products API sometimes returns duplicate items with the same `id`. 
 - Lets the app normalize upstream quirks (e.g. duplicate products) and map responses before they reach the UI.
 - Gives a stable contract for the frontend (`/api/v1/products`) even if the external API shape changes.
 
-###
-
 Feel free to reach out if you have any questions about this challenge:
 
-LinkedIn: linkedin.com/in/maximilianogarcia13
-Portfolio / CV: maxi-garcia-mortigliengo-cv.vercel.app
+- LinkedIn: linkedin.com/in/maximilianogarcia13
+- Portfolio / CV: maxi-garcia-mortigliengo-cv.vercel.app
