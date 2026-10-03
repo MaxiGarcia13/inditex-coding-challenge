@@ -1,6 +1,7 @@
 @import './resets.css';
 @import './variables.css';
 @import './custom-classes.css';
+@import './scroll.css';
 
 @media (max-width: 768px) {
   :root {
