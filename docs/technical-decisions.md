@@ -5,6 +5,10 @@
 - **SEO**: the listing and detail pages benefit from server-rendered HTML and metadata, which helps search engines index product content.
 - **API gateway (BFF)**: an internal `/api/v1/products` proxies the external products API so `PRODUCTS_API_KEY` and `PRODUCTS_API_URL` stay server-only, upstream quirks can be normalized (e.g. duplicate products), and the frontend keeps a stable contract even if the external API shape changes.
 
+## Why `PRODUCTS_API_URL` and `PRODUCTS_API_KEY` as env vars?
+
+Both are read from the environment so the same codebase can point at different upstreams (local, CI, staging, production) without code changes. The key stays server-only and can be rotated or swapped per environment; the URL can target a mock, a shared test API, or the real products API depending on where the app runs.
+
 ## Why TanStack Query?
 
 - Simpler data fetching for client-side needs (e.g. search).
