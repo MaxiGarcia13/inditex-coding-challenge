@@ -1,11 +1,11 @@
 import { expect, test } from '@playwright/test';
+import { fillProductFormAndAddToCart } from './utils/product-form';
 
 test('continue shopping redirects to the main view', async ({ page }) => {
   await page.goto('/');
 
   await page.getByTestId('product-card').first().click();
-  await page.getByTestId('storage-selector').locator('[role="radio"]').first().click();
-  await page.getByTestId('add-to-cart').click();
+  await fillProductFormAndAddToCart(page);
 
   await expect(page).toHaveURL('/cart');
 
