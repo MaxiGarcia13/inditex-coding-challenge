@@ -12,6 +12,11 @@ See [docs/requirements.md](./docs/requirements.md) for the full challenge requir
 
 See [docs/technical-decisions.md](./docs/technical-decisions.md) for the main technical choices behind this solution.
 
+Feel free to explore my work or reach out if you have any questions about this challenge:
+
+- **Portfolio / CV:** [maxi-garcia-mortigliengo-cv.vercel.app](https://maxi-garcia-mortigliengo-cv.vercel.app/)
+- **LinkedIn:** [linkedin.com/in/maximilianogarcia13](https://www.linkedin.com/in/maximilianogarcia13/)
+
 ## Stack
 
 - **Next.js** — App Router, React Server Components, and API routes
@@ -69,9 +74,5 @@ npm run lint:fix
 
 ```bash
 npm test
+
 ```
-
-Feel free to explore my work or reach out if you have any questions about this challenge:
-
-- **Portfolio / CV:** [maxi-garcia-mortigliengo-cv.vercel.app](https://maxi-garcia-mortigliengo-cv.vercel.app/)
-- **LinkedIn:** [linkedin.com/in/maximilianogarcia13](https://www.linkedin.com/in/maximilianogarcia13/)
