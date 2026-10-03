@@ -1,7 +1,5 @@
-import process, { loadEnvFile } from 'node:process';
+import process from 'node:process';
 import { defineConfig, devices } from '@playwright/test';
-
-loadEnvFile('.env');
 
 export default defineConfig({
   testDir: './e2e',
