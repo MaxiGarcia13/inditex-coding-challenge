@@ -41,3 +41,7 @@ Show the phones added to the cart, with:
 ## Design
 
 [Figma](https://www.figma.com/design/Nuic7ePgOfUQ0hcBrUUQrb/Labs---Zara-Web-Challenge--Smartphones-?node-id=0-1&p=f&t=sS48OvEMhvgYx92Y-0)
+
+## API
+
+[Swagger docs](https://prueba-tecnica-api-tienda-moviles.onrender.com/docs/#/default/get_products)
