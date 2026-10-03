@@ -46,7 +46,7 @@ PRODUCTS_API_URL=https://prueba-tecnica-api-tienda-moviles.onrender.com
 PRODUCTS_API_KEY=api-key
 ```
 
-Replace `api-key` and `api-url` with the products API credentials provided for the challenge.
+Replace `api-key` with the products API credentials provided for the challenge.
 
 ### 3. Run the project
 
