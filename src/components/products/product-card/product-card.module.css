@@ -104,3 +104,9 @@
     transform: translateY(0);
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .card:hover::before {
+    animation: none;
+  }
+}
