@@ -36,3 +36,4 @@ jobs:
   e2e-test:
     needs: build
     uses: ./.github/workflows/playwright.yml
+    secrets: inherit

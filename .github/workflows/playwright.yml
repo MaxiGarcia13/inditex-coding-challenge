@@ -7,6 +7,10 @@ jobs:
   e2e:
     timeout-minutes: 60
     runs-on: ubuntu-latest
+    env:
+      APP_URL: ${{ vars.APP_URL }}
+      PRODUCTS_API_URL: ${{ vars.PRODUCTS_API_URL }}
+      PRODUCTS_API_KEY: ${{ secrets.PRODUCTS_API_KEY }}
     steps:
       - uses: actions/checkout@v4
 
