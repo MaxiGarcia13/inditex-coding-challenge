@@ -6,6 +6,7 @@ import { BackButton } from '@/components/back-button';
 import { ErrorState } from '@/components/error-state';
 import { ProductForm, ProductSpecs, SimilarProducts } from '@/components/products';
 import { APP_METADATA } from '@/constants/metadata';
+import { getSessionSecret, INTERNAL_SESSION_HEADER } from '@/domain/auth';
 import { getProductDetail } from '@/services/products';
 import { isHttpError } from '@/utils/http';
 
@@ -14,7 +15,15 @@ interface PageProps {
 }
 
 const loadProduct = cache(async (id: string) =>
-  getProductDetail(id, { baseUrl: process.env.APP_URL! }),
+  getProductDetail(
+    id,
+    {
+      baseUrl: process.env.APP_URL!,
+      headers: {
+        [INTERNAL_SESSION_HEADER]: getSessionSecret(),
+      },
+    },
+  ),
 );
 
 export default async function Page({ params }: PageProps) {
