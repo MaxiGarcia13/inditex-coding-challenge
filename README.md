@@ -26,6 +26,7 @@ Feel free to reach out if you have any questions about this challenge:
 - **Zustand** — cart state with localStorage persistence
 - **CSS Modules** — component-scoped styles
 - **Vitest** + **Testing Library** — unit and component tests
+- **Playwright** — end-to-end tests
 - **ESLint** — linting
 
 ## Getting started
@@ -74,7 +75,34 @@ npm run lint:fix
 
 ### Tests
 
+Run unit and e2e tests together:
+
 ```bash
 npm test
+```
 
+#### Unit tests
+
+```bash
+npm run test:unit
+```
+
+#### E2E tests
+
+Playwright starts the Next.js app automatically (or reuses one already running on `APP_URL`). Install browsers once before the first run:
+
+```bash
+npx playwright install chromium
+```
+
+Then run the e2e suite:
+
+```bash
+npm run test:e2e
+```
+
+For the interactive Playwright UI:
+
+```bash
+npm run test:e2e:ui
 ```
