@@ -1,7 +1,6 @@
 * {
   scrollbar-width: thin;
   scrollbar-color: color-mix(in srgb, var(--text-color) 35%, transparent) transparent;
-  scroll-behavior: smooth;
 }
 
 *::-webkit-scrollbar {
