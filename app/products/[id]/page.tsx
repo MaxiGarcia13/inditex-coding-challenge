@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import type { ProductBase } from '@/domain/products';
 import process from 'node:process';
+import { cache } from 'react';
 import { BackButton } from '@/components/back-button';
 import { ProductForm, ProductSpecs, SimilarProducts } from '@/components/products';
 import { APP_METADATA } from '@/constants/metadata';
@@ -11,10 +12,14 @@ interface PageProps {
   params: Promise<Pick<ProductBase, 'id'>>;
 }
 
+const loadProduct = cache(async (id: string) =>
+  getProductDetail(id, { baseUrl: process.env.APP_URL! }),
+);
+
 export default async function Page({ params }: PageProps) {
   const { id } = await params;
 
-  const product = await getProductDetail(id, { baseUrl: process.env.APP_URL! });
+  const product = await loadProduct(id);
 
   if (isHttpError(product)) {
     return null;
@@ -32,7 +37,8 @@ export default async function Page({ params }: PageProps) {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { id } = await params;
-  const product = await getProductDetail(id, { baseUrl: process.env.APP_URL! });
+
+  const product = await loadProduct(id);
 
   if (isHttpError(product)) {
     return { title: 'Product not found' };
