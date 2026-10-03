@@ -1,14 +1,10 @@
 import { expect, test } from '@playwright/test';
+import { waitForProductsResponse } from './utils/products';
 
 test('back button returns to the list with the previous search', async ({ page }) => {
   await page.goto('/');
 
-  const searchResponse = page.waitForResponse(
-    (response) =>
-      response.url().includes('/api/v1/products')
-      && response.url().includes('search=Apple')
-      && response.ok(),
-  );
+  const searchResponse = waitForProductsResponse(page, 'Apple');
 
   await page.getByTestId('search-input').fill('Apple');
   await searchResponse;

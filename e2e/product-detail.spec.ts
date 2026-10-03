@@ -1,14 +1,11 @@
 import { expect, test } from '@playwright/test';
+import { waitForProductsResponse } from './utils/products';
 
 test('clicking a phone redirects to its detail view', async ({ page }) => {
+  const productsResponse = waitForProductsResponse(page);
+
   await page.goto('/');
-
-  const searchResponse = page.waitForResponse(
-    (response) =>
-      response.url().includes('/api/v1/products') && response.ok(),
-  );
-
-  await searchResponse;
+  await productsResponse;
 
   await page.getByTestId('product-card').first().click();
 
