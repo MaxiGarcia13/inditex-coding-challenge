@@ -29,5 +29,5 @@ The upstream products API sometimes returns duplicate items with the same `id`. 
 
 Feel free to reach out if you have any questions about this challenge:
 
-- LinkedIn: linkedin.com/in/maximilianogarcia13
-- Portfolio / CV: maxi-garcia-mortigliengo-cv.vercel.app
+- **LinkedIn:** [linkedin.com/in/maximilianogarcia13](https://www.linkedin.com/in/maximilianogarcia13/)
+- **Portfolio / CV:** [maxi-garcia-mortigliengo-cv.vercel.app](https://maxi-garcia-mortigliengo-cv.vercel.app/)
