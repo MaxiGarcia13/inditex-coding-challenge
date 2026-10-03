@@ -30,6 +30,8 @@ Feel free to reach out if you have any questions about this challenge:
 
 ## Getting started
 
+We recommend **Node.js 24 or later**.
+
 ### 1. Install dependencies
 
 ```bash
