@@ -1,12 +1,12 @@
 'use client';
 
 import { SearchInput } from '@/components/search-input';
-import { useNavigation } from '@/hooks/use-navigation';
 import { useProducts } from '@/hooks/use-products';
+import { useSearchParam } from '@/hooks/use-search-param';
 import styles from './product-search-box.module.css';
 
 export function ProductSearchBox() {
-  const { setSearchParam, deleteSearchParam, getSearchParam } = useNavigation();
+  const { setSearchParam, deleteSearchParam, getSearchParam } = useSearchParam();
   const { total } = useProducts();
 
   const handleSearch = (search: string) => {

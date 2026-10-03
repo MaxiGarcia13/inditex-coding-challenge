@@ -1,36 +1,19 @@
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+'use client';
 
-type SearchParamKey = 'q';
+import { useRouter } from 'next/navigation';
+
 interface NavigateToOptions {
   keepSearchParams?: boolean;
 }
 
 export function useNavigation() {
   const router = useRouter();
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
-
-  const setSearchParam = (key: SearchParamKey, value: string) => {
-    const params = new URLSearchParams(searchParams.toString());
-    params.set(key, value);
-    router.replace(`${pathname}?${params.toString()}`);
-  };
-
-  const deleteSearchParam = (key: SearchParamKey) => {
-    const params = new URLSearchParams(searchParams.toString());
-    params.delete(key);
-    router.replace(`${pathname}?${params.toString()}`);
-  };
-
-  const getSearchParam = (key: SearchParamKey) => {
-    return searchParams.get(key);
-  };
 
   const navigateTo = (path: string, { keepSearchParams = false }: NavigateToOptions = {}) => {
     let destination = path;
 
-    if (keepSearchParams) {
-      destination = `${path}?${searchParams.toString()}`;
+    if (keepSearchParams && typeof window !== 'undefined') {
+      destination = `${path}${window.location.search}`;
     }
 
     router.push(destination);
@@ -43,8 +26,5 @@ export function useNavigation() {
   return {
     navigateTo,
     goBack,
-    getSearchParam,
-    setSearchParam,
-    deleteSearchParam,
   };
 }

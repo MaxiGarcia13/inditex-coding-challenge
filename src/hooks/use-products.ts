@@ -2,10 +2,10 @@ import type { ProductSummariesResponse } from '@/domain/products';
 import { useQuery } from '@tanstack/react-query';
 import { useDeferredValue } from 'react';
 import { getProductSummaries } from '@/services/products';
-import { useNavigation } from './use-navigation';
+import { useSearchParam } from './use-search-param';
 
 export function useProducts() {
-  const { getSearchParam } = useNavigation();
+  const { getSearchParam } = useSearchParam();
 
   const search = getSearchParam('q') ?? '';
 
