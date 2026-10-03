@@ -19,7 +19,10 @@
     "start": "next start",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
-    "test": "vitest run",
+    "test:unit": "vitest run",
+    "test:e2e": "CI=true playwright test",
+    "test:e2e:ui": "CI=true playwright test --ui",
+    "test": "npm run test:unit && npm run test:e2e",
     "phoenix": "rm -rf node_modules package-lock.json .next && npm install"
   },
   "dependencies": {
@@ -33,9 +36,11 @@
   "devDependencies": {
     "@eslint-react/eslint-plugin": "^5.23.3",
     "@maxigarcia/eslint-config": "^1.14.1",
+    "@playwright/test": "^1.63.0",
     "@testing-library/jest-dom": "^7.0.1",
     "@testing-library/react": "^16.3.3",
     "@testing-library/user-event": "^14.6.7",
+    "@types/node": "^26.6.4",
     "@types/react": "19.3.0",
     "eslint-plugin-react-refresh": "^0.5.7",
     "jsdom": "^29.1.1",
