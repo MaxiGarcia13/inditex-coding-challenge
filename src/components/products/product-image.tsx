@@ -8,7 +8,7 @@ interface ProductImageProps extends ImgHTMLAttributes<HTMLImageElement> {
 export function ProductImage({ productId, ...props }: ProductImageProps) {
   return (
     <ViewTransition name={`product-${productId}-image`}>
-      <img {...props} />
+      <img loading="lazy" {...props} />
     </ViewTransition>
   );
 }
