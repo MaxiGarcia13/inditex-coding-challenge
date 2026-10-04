@@ -9,15 +9,15 @@
 
 Both are read from the environment so the same codebase can point at different upstreams (local, CI, staging, production) without code changes. The key stays server-only and can be rotated or swapped per environment; the URL can target a mock, a shared test API, or the real products API depending on where the app runs.
 
-## How is the BFF protected?
+## How is the API protected?
 
 The BFF is publicly reachable, so protection is layered:
 
-- **Vercel Firewall — origin allowlist**: rejects cross-origin browser requests that are not from the app’s allowed origins.
-- **Vercel Firewall — rate limiting**: throttles abusive traffic by IP so scripts and scrapers cannot freely burn the upstream API quota.
-- **Short-lived access-token cookie**: `proxy.ts` sets an HttpOnly signed cookie on page loads and requires it on `/api/*`, so casual `curl` without a browser pass gets `401`. Server-side renders mint the same cookie value and send it on the BFF fetch.
+- **Vercel Firewall — origin allowlist**: denies `/api/*` when the request sends an `Origin` that is not the app. This blocks cross-origin browser calls; same-origin `GET` often omits `Origin`, so we do not deny missing Origin.
+- **Vercel Firewall — rate limiting**: throttles abusive traffic by IP so scripts cannot freely burn the upstream API quota.
+- **Short-lived access-token cookie**: `proxy.ts` sets an HttpOnly signed cookie on page loads and requires it on `/api/*`, so casual `curl` without a browser visit gets `401`.
 
-CORS alone cannot stop `curl` or forged `Origin` headers; the access-token cookie and rate limiting cover that gap.
+This is basic covering, not hard security: `Origin` and cookies can be forged or copied. The real goal is keeping `PRODUCTS_API_KEY` server-side and making casual abuse harder.
 
 ## Why TanStack Query?
 
