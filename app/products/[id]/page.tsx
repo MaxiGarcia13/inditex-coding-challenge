@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import type { ProductBase } from '@/domain/products';
 import { cache } from 'react';
+import { mapHttpError } from '@/adapters/http-error';
 import { mapProductDetailResponse } from '@/adapters/products';
 import { BackButton } from '@/components/back-button';
 import { ErrorState } from '@/components/error-state';
@@ -13,9 +14,16 @@ interface PageProps {
   params: Promise<Pick<ProductBase, 'id'>>;
 }
 
-const loadProduct = cache(async (id: string) =>
-  getProductGateway(id).then(mapProductDetailResponse),
-);
+const loadProduct = cache(async (id: string) => {
+  try {
+    const product = await getProductGateway(id);
+    return mapProductDetailResponse(product);
+  } catch (error) {
+    return isHttpError(error)
+      ? error
+      : mapHttpError(error);
+  }
+});
 
 export default async function Page({ params }: PageProps) {
   const { id } = await params;

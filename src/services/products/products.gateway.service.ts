@@ -1,6 +1,7 @@
 import type { ProductBase, ProductDetail, ProductsRequest, ProductSummary } from '@/domain/products';
 import process from 'node:process';
 import { addParamsToUrl } from '@maxigarcia/js-utils';
+import { mapHttpError } from '@/adapters/http-error';
 
 type ProductsParams = Partial<ProductsRequest & Pick<ProductBase, 'id'>>;
 
@@ -25,5 +26,18 @@ export async function getProductGateway(
 ): Promise<ProductDetail> {
   const url = addParamsToUrl(`${PRODUCTS_API_ENDPOINT}/${id}`, { ...params });
 
-  return fetch(url, PRODUCTS_OPTIONS).then((response) => response.json());
+  try {
+    const response = await fetch(url, PRODUCTS_OPTIONS);
+
+    if (!response.ok) {
+      throw mapHttpError({
+        status: response.status,
+        message: response.statusText,
+      });
+    }
+
+    return response.json();
+  } catch (error) {
+    throw mapHttpError(error);
+  }
 }

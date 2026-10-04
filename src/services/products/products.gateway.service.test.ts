@@ -132,7 +132,25 @@ describe('products gateway service', () => {
       vi.spyOn(globalThis, 'fetch').mockRejectedValue(new Error('Network Error'));
       const { getProductGateway } = await loadGateway();
 
-      await expect(getProductGateway('1')).rejects.toThrow('Network Error');
+      await expect(getProductGateway('1')).rejects.toEqual({
+        error: 'unknown',
+        message: 'Network Error',
+      });
+    });
+
+    it('should reject with an HttpError when the response is not ok', async () => {
+      vi.spyOn(globalThis, 'fetch').mockResolvedValue({
+        ok: false,
+        status: 404,
+        statusText: 'Not Found',
+        json: () => Promise.resolve({ error: 'not found' }),
+      } as unknown as Response);
+      const { getProductGateway } = await loadGateway();
+
+      await expect(getProductGateway('1')).rejects.toMatchObject({
+        status: 404,
+        message: 'Not Found',
+      });
     });
   });
 });
