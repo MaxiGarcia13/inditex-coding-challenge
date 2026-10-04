@@ -1,13 +1,12 @@
 import type { Metadata } from 'next';
 import type { ProductBase } from '@/domain/products';
-import process from 'node:process';
 import { cache } from 'react';
+import { mapProductDetailResponse } from '@/adapters/products';
 import { BackButton } from '@/components/back-button';
 import { ErrorState } from '@/components/error-state';
 import { ProductForm, ProductSpecs, SimilarProducts } from '@/components/products';
 import { APP_METADATA } from '@/constants/metadata';
-import { ACCESS_TOKEN_COOKIE, createAccessTokenValue } from '@/domain/auth';
-import { getProductDetail } from '@/services/products';
+import { getProductGateway } from '@/services/products/products.gateway.service';
 import { isHttpError } from '@/utils/http';
 
 interface PageProps {
@@ -15,15 +14,7 @@ interface PageProps {
 }
 
 const loadProduct = cache(async (id: string) =>
-  getProductDetail(
-    id,
-    {
-      baseUrl: process.env.APP_URL!,
-      headers: {
-        Cookie: `${ACCESS_TOKEN_COOKIE}=${createAccessTokenValue()}`,
-      },
-    },
-  ),
+  getProductGateway(id).then(mapProductDetailResponse),
 );
 
 export default async function Page({ params }: PageProps) {
