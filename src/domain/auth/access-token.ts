@@ -11,7 +11,9 @@ export function getAccessTokenSecret(): string {
 }
 
 export function createAccessTokenValue(now = Date.now()): string {
-  return getToken().create(now);
+  return getToken().create({
+    now,
+  });
 }
 
 export function isValidAccessToken(value: string | undefined | null): boolean {
