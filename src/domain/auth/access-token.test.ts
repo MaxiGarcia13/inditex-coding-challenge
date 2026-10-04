@@ -11,7 +11,7 @@ describe('access-token', () => {
   });
 
   it('should create and validate an access token', () => {
-    vi.stubEnv('ACCESS_TOKEN_SECRET', 'test-secret');
+    vi.stubEnv('SESSION_SECRET', 'test-secret');
 
     const value = createAccessTokenValue();
 
@@ -19,7 +19,7 @@ describe('access-token', () => {
   });
 
   it('should reject an expired access token', () => {
-    vi.stubEnv('ACCESS_TOKEN_SECRET', 'test-secret');
+    vi.stubEnv('SESSION_SECRET', 'test-secret');
     vi.useFakeTimers();
     vi.setSystemTime(new Date('2026-01-01T00:00:00.000Z'));
 
@@ -31,7 +31,7 @@ describe('access-token', () => {
   });
 
   it('should reject a tampered access token', () => {
-    vi.stubEnv('ACCESS_TOKEN_SECRET', 'test-secret');
+    vi.stubEnv('SESSION_SECRET', 'test-secret');
 
     const value = createAccessTokenValue();
     const [expiresAt] = value.split('.');

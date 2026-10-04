@@ -47,10 +47,10 @@ Create a `.env` file in the project root with:
 APP_URL=http://localhost:3000
 PRODUCTS_API_URL=https://prueba-tecnica-api-tienda-moviles.onrender.com
 PRODUCTS_API_KEY=api-key
-ACCESS_TOKEN_SECRET=any-long-random-string
+SESSION_SECRET=any-long-random-string
 ```
 
-Replace `api-key` with the products API credentials provided for the challenge. Set a strong `ACCESS_TOKEN_SECRET` in production (locally it falls back to a dev default if omitted).
+Replace `api-key` with the products API credentials provided for the challenge. Set a strong `SESSION_SECRET` in production (locally it falls back to a dev default if omitted).
 
 ### 3. Run the project
 
