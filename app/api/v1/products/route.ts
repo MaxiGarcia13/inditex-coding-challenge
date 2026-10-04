@@ -10,8 +10,8 @@ export async function GET(request: NextRequest) {
 
     const response = await getProductsGateway({
       search: searchParams.get('search'),
-      limit: Number(searchParams.get('limit')),
-      offset: Number(searchParams.get('offset')),
+      limit: Number(searchParams.get('limit')) ?? 10,
+      offset: Number(searchParams.get('offset')) ?? 0,
     });
 
     return NextResponse.json(
