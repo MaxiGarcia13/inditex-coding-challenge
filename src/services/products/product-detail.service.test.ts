@@ -73,7 +73,7 @@ describe('getProductDetail', () => {
 
   it('should forward fetch options', async () => {
     const fetchSpy = mockFetchResponse({ jsonData: successResponse });
-    const headers = { 'x-internal-session': 'test-secret' };
+    const headers = { Cookie: 'app_access_token=test-token' };
 
     await getProductDetail(productId, { headers });
 

@@ -2,24 +2,17 @@ import type { NextRequest } from 'next/server';
 import process from 'node:process';
 import { NextResponse } from 'next/server';
 import {
-  createSessionValue,
-  INTERNAL_SESSION_HEADER,
-  isInternalSession,
-  isValidSession,
-  SESSION_COOKIE,
+  ACCESS_TOKEN_COOKIE,
+  createAccessTokenValue,
+  isValidAccessToken,
 } from '@/domain/auth';
 
 export function proxy(request: NextRequest) {
-  const session = request.cookies.get(SESSION_COOKIE)?.value;
+  const accessToken = request.cookies.get(ACCESS_TOKEN_COOKIE)?.value;
   const isApiRequest = request.nextUrl.pathname.startsWith('/api/');
 
   if (isApiRequest) {
-    const hasSession = isValidSession(session);
-    const hasInternalAccess = isInternalSession(
-      request.headers.get(INTERNAL_SESSION_HEADER),
-    );
-
-    if (!hasSession && !hasInternalAccess) {
+    if (!isValidAccessToken(accessToken)) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
@@ -28,8 +21,8 @@ export function proxy(request: NextRequest) {
 
   const response = NextResponse.next();
 
-  if (!isValidSession(session)) {
-    response.cookies.set(SESSION_COOKIE, createSessionValue(), {
+  if (!isValidAccessToken(accessToken)) {
+    response.cookies.set(ACCESS_TOKEN_COOKIE, createAccessTokenValue(), {
       httpOnly: true,
       sameSite: 'lax',
       secure: process.env.NODE_ENV === 'production',

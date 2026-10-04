@@ -11,7 +11,7 @@ jobs:
       APP_URL: ${{ vars.APP_URL }}
       PRODUCTS_API_URL: ${{ vars.PRODUCTS_API_URL }}
       PRODUCTS_API_KEY: ${{ secrets.PRODUCTS_API_KEY }}
-      SESSION_SECRET: test-session-secret
+      ACCESS_TOKEN_SECRET: test-access-token-secret
     steps:
       - uses: actions/checkout@v4
 

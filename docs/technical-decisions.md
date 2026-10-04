@@ -15,9 +15,9 @@ The BFF is publicly reachable, so protection is layered:
 
 - **Vercel Firewall — origin allowlist**: rejects cross-origin browser requests that are not from the app’s allowed origins.
 - **Vercel Firewall — rate limiting**: throttles abusive traffic by IP so scripts and scrapers cannot freely burn the upstream API quota.
-- **Short-lived session cookie**: `proxy.ts` sets an HttpOnly signed cookie on page loads and requires it on `/api/*`, so casual `curl` without a browser session gets `401`. Server-side renders pass a server-only header for the same check.
+- **Short-lived access-token cookie**: `proxy.ts` sets an HttpOnly signed cookie on page loads and requires it on `/api/*`, so casual `curl` without a browser pass gets `401`. Server-side renders mint the same cookie value and send it on the BFF fetch.
 
-CORS alone cannot stop `curl` or forged `Origin` headers; the session cookie and rate limiting cover that gap.
+CORS alone cannot stop `curl` or forged `Origin` headers; the access-token cookie and rate limiting cover that gap.
 
 ## Why TanStack Query?
 
