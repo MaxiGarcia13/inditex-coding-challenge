@@ -1,5 +1,5 @@
 import process from 'node:process';
-import { createAccessToken } from '@maxigarcia/access-token';
+import { accessToken } from '@maxigarcia/access-token';
 
 export const ACCESS_TOKEN_COOKIE = 'app_access_token';
 
@@ -11,17 +11,17 @@ export function getAccessTokenSecret(): string {
 }
 
 export function createAccessTokenValue(now = Date.now()): string {
-  return getToken().create({
+  return getAccessTokenManager().create({
     now,
   });
 }
 
 export function isValidAccessToken(value: string | undefined | null): boolean {
-  return getToken().isValid(value);
+  return getAccessTokenManager().isValid(value);
 }
 
-function getToken() {
-  return createAccessToken(getAccessTokenSecret(), {
+function getAccessTokenManager() {
+  return accessToken(getAccessTokenSecret(), {
     ttlMs: ACCESS_TOKEN_TTL_MS,
   });
 }
